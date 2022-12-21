@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}Wprowadzenie}{2}{section.1}%
+\contentsline {section}{\numberline {2}Transformacja danych}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Dodanie nowej kolumny }{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Usunięcie wartości odstających}{2}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Jednowymiarowa analiza}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Objętość}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Cena}{4}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Analiza zależności między }{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Estymacja punktowa}{7}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Estymacja przedziałowa}{8}{subsection.4.2}%
