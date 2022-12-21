@@ -50,6 +50,155 @@
 
 
 \begin{document}
+	\begin{titlepage}
+		\begin{center}
+			
+			\textbf{\Huge  Wykorzystanie poznanych metod dotyczących analizy zależności liniowej
+				do wybranych danych rzeczywistych}
+			
+			\vspace{0.5cm}
+			
+			\vspace{1.5cm}
+			
+			\textbf{\LARGE Autorzy}\\
+			\vspace{0.5cm}
+			\large Kacper Budnik 262286\\
+			\large Maciej Karczewski 262282\\
+			
+			
+			\vfill
+			
+			\vspace{0.4cm}
+			
+			\includegraphics[width=0.60\textwidth]{images/logo.PNG}
+			
+			\vspace{0.8cm}
+			Wydział Matematyki\\\\
+			\today
+		\end{center}
+	\end{titlepage}
+	\tableofcontents
+	\newpage
+	
+	\section{Wprowadzenie}
+	
+	Diamenty są rzadkim minerałem, ale bardzo cennym. Są one czystym węglem i mają wiele zastosować. Używa się ich przykładowo do aparatury naukowej czy medycznej. Diamenty używa się także w jubilerstwie.
+	
+	Dane o diamentach pozyskujemy z platformy \href{https://www.kaggle.com}{Kaggle}. Nasze dane zawierają $53940$ rekordów i pierwsze $7$ wierszy wygląda następująco:
+	\begin{table}[H]
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+				\hline
+				& carat & cut & color & clarity & depth & table & price & x & y & z \\ \hline
+				1 & 0.23 & Ideal & E & SI2 & 61.5 & 55 & 326 & 3.95 & 3.98 & 2.43 \\ \hline
+				2 & 0.21 & Premium & E & SI1 & 59.8 & 61 & 326 & 3.89 & 3.84 & 2.31 \\ \hline
+				3 & 0.23 & Good & E & VS1 & 56.9 & 65 & 327 & 4.05 & 4.07 & 2.31 \\ \hline
+				4 & 0.29 & Premium & I & VS2 & 62.4 & 58 & 334 & 4.2 & 4.23 & 2.63 \\ \hline
+				5 & 0.31 & Good & J & SI2 & 63.3 & 58 & 335 & 4.34 & 4.35 & 2.75 \\ \hline
+				6 & 0.24 & Very Good & J & VVS2 & 62.8 & 57 & 336 & 3.94 & 3.96 & 2.48 \\ \hline
+				7 & 0.24 & Very Good & I & VVS1 & 62.3 & 57 & 336 & 3.95 & 3.98 & 2.47 \\ \hline
+			\end{tabular}%
+		}
+		\caption{Oryginalne dane }
+		\label{orginalne_dane}
+	\end{table}
+	
+	Dla naszych danych sprawdzimy liniową zależność ceny ("price") od iloczynu wymiarów diamentu.
+	\section{Transformacja danych}
+	
+	\subsection{Dodanie nowej kolumny }
+	Do naszych danych dodamy nową kolumną i nazwiemy ją "V". Nawo kolumna będzie iloczynem wymiarów diamentu ( kolumny "x", "y" oraz "z"). Ten iloczyn możemy interpretować jako objętość diamentu z dokładnością do przemnożonej stałej. Nową zmienną będziemy wyjaśniać cenę diamentu.
+	
+	\subsection{Usunięcie wartości odstających}
+	W następnym kroku usuniemy $ 1 \% $ najmniejszych cen oraz  $ 10\%$ największych cen. Będziemy usuwać też  $ 1 \% $ najmniejszych objętości oraz  $ 5\%$ największych. Ostatecznie usuniemy około $12\%$ danych.
+	
+	\section{Jednowymiarowa analiza}
+	\subsection{Objętość}
+	Analizę danych zaczniemy od analizy objętości. Box plot objętości wygląda następująco.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=4\columnwidth/5]{images/boxplot_V_danych.pdf}
+		\caption{Boxplot objętości dla podstawowych danych}
+		\label{fig:box_V_orginal}
+	\end{figure}
+	
+	Jak możemy zobaczyć na box plocie to nasze dane mają dużo wartość odstających. Z tego powodu ciężko analizować wykres \ref{fig:box_V_orginal}, a także stworzyć poprawny model dlatego pozbędziemy się ich. Gdy usuniemy $ 1 \% $ najmniejszych objętości oraz  $ 5\%$ największych otrzymamy czytelniejszy wykres.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=4\columnwidth/5]{images/boxplot_V_danych_oczyszczonych.pdf}
+		\caption{Box plot objętości dla oczyszczonych danych}
+		\label{fig:box_V}
+	\end{figure}
+	Tutaj nasze dane są o wiele bardziej czytelne. Z wykresu \ref{fig:box_V} możemy odczytać, że mediana naszych danych wynosi około $100$ oraz, że mamy do czynienia z rozkładem prawostronnie skośnym. Widzimy też, że pierwszy kwantyl wynosi około $60$ a trzeci około $160$.
+	Zobaczymy teraz jak wygląda rozkład objętości na histogramie.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=4\columnwidth/5]{images/histogram_V.pdf}
+		\caption{Histogram objętości dla oczyszczonych danych}
+		\label{fig:hist_V}
+	\end{figure}
+	Jak widzimy na histogramie gęstość na histogramie nie zachowuję się monotoniczne, ciężko stwierdzić jaki rozkład ma objętość. Pomimo tego faktu możemy zauważyć że diamenty dzielą się głównie na $4$ grupy. Pierwszą najbardziej liczą jest grupa o iloczynie wymiarów należących do przedziału $[45;70] $, następną grupą jest o iloczynie należącym do $[80;100]$. Pozostałymi grupami są iloczyny należące do przedziałów $[110;120]$ oraz $[160;170]$.
+	
+	Zobaczymy teraz jak wyglądają statystyki opisowe dla naszych oczyszczonych danych
+	
+	\begin{table}[H]
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{|l|l|l|l|l|l|}
+				\hline
+				& Średnia & Mediana & Wariancja & Skośność & Kurtoza \\ \hline
+				V & 113.48 & 100.87 & 3057.10 & 0.60 & -0.63 \\ \hline
+			\end{tabular}%
+		}
+		\caption{Podstawowe statystyki opisowe dla objętości}
+		\label{tab:statystyki_V}
+	\end{table}
+	Możemy zobaczyć, że średnia jest większa  od mediany oraz, że skośność jest dodatnia co sugeruje nam, że rozkład objętości jest prawostronnie skośny co się pokrywa za informacją zawartą na box plocie \ref{fig:box_V}. Kurtoza jest ujemna to znaczy, że rozkład ma ogony węższe niż rozkład normalny czyli jest rozkładem platykurtycznym. 
+	
+	\subsection{Cena}
+	Sprawdziliśmy jak wygląda rozkład objętości to to teraz sprawdzimy rozkład ceny diamentów.
+	Box Plot dla ceny diamentów bez usunięcia wartości skrajnych wygląda następująco.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=4\columnwidth/5]{images/boxplot_price_danych.pdf}
+		\caption{Boxplot ceny dla podstawowych danych}
+		\label{fig:box_price_orginal}
+	\end{figure}
+	
+	Z box plotu możemy odczytać, że ponownie mamy dużo wartości odstających, które przeszkadzają w analizie danych. Właśnie z tego powodu usuniemy $ 1 \% $ najmniejszych cen oraz  $ 10\%$ największych cen.
+	Po usunięciu wartości nasz Box plot wygląda następująco
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=4\columnwidth/5]{images/boxplot_price_danych_oczyszczonych.pdf}
+		\caption{Box plot ceny dla oczyszczonych danych}
+		\label{fig:box_price}
+	\end{figure}
+	Po usunięciu danych skrajnych wykres pudełkowy staje się czytelniejszy. Z wykresu możemy odczytać, że mediana cen jest w okolicy $2000$ natomiast pierwszy w okolicach $1000$ a trzeci w okolicach $4300$. Możemy sądzić, że rozkład ceny jest prawostronnie skośny.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=4\columnwidth/5]{images/histogram_price.pdf}
+		\caption{Histogram ceny diamentów}
+		\label{fig:hist_price}
+	\end{figure}
+ Z histogramu możemy odczytać, że gęstośći prawdopodobieństwa ceny jest prawie monotoniczna. Im większa cena tym na ogół, rzadszy diament. Możemy zobaczyć, że mamy najwięcej diamentów tanich nieprzekraczających $2500$ . Możemy także zobaczyć większą liczebność diamentów z ceną w okolicach $4000$. 
+ 
+		Zobaczymy teraz jak wyglądają statystyki opisowe dla naszych oczyszczonych danych
+	
+	\begin{table}[H]
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{|l|l|l|l|l|l|}
+				\hline
+				& Średnia & Mediana & Wariancja & Skośność & Kurtoza \\ \hline
+				Cena &2890.46 & 2064.0 	 & 5.49 & 1.02  &0.10 \\ \hline
+			\end{tabular}%
+		}
+		\caption{Podstawowe statystyki opisowe dla objętości}
+		\label{tab:statystyki_price}
+	\end{table}
+	Możemy zobaczyć, że średnia jest większa od mediany, oraz że skośność jest dodatnia co sugeruje nam, że rozkład objętości jest prawostronnie skośny co się pokrywa za informacją zawartą na box plocie \ref{fig:box_price}. Kurtoza jest dodatnia  ale bliska $0$ to znaczy, że rozkład ma ogony grubsze niż rozkład normalny lub ma porównywalne do rozkładu normalnego. Zatem jest to rozkłąd leptokurtyczny lub mezokurtyczny. Warincja ceny jest znacząco mniejsza niż wariancja obiętości \ref{tab:statystyki_V}.  
+	
 	\section{Analiza zależności między }
 	Analizujemy zależność między ceną, a objętością. Przyjrzyjmy się zalezności naszych danych na wykresie.
 	\begin{figure}[H]\label{fig:v_vs_price}\centering
@@ -85,7 +234,7 @@
 	\begin{equation}
 		s^2=\frac{1}{n-2}\sum_{i=1}^{n}\left(Y_i-\hat Y_i\right)
 	\end{equation}
-	otrzymując estymator $Var \hat Y_i$ i wtym przypadku zmienna losowa
+	otrzymując estymator $Var \hat Y_i$ i w tym przypadku zmienna losowa
 	\begin{equation}
 		\frac{\hat Y_i-\mathbb{E}\hat Y_i}{s^2\left(\frac{1}{n}+\frac{(x_0-\overline{x})}{\sum_{i=1}^{n}\left(x_i-\overline{x}\right)^2}\right)}
 	\end{equation}
@@ -94,6 +243,8 @@
 		\mathbb{P}\left(\hat Y_0 - z_{\alpha/2}s\sqrt{\frac{1}{n}+\frac{\left(x_0-\overline{x}\right)^2}{\sum_{i=1}^n\left(x_i-\overline{x}\right)^2}}\leq Y_0\leq\hat Y_0 + z_{\alpha/2}s\sqrt{\frac{1}{n}+\frac{\left(x_0-\overline{x}\right)^2}{\sum_{i=1}^n\left(x_i-\overline{x}\right)^2}}\right)=1-\alpha.
 	\end{equation}
 	Zatem naszymi przedziałami ufności dla danej realizacji $Y$ będzie 
+	
+	\subsection{}
 
 
 
