@@ -73,7 +73,7 @@
 			\includegraphics[width=0.60\textwidth]{images/logo.PNG}
 			
 			\vspace{0.8cm}
-			Wydział Matematyki\\\\
+			Wydział Matematyki	
 			\today
 		\end{center}
 	\end{titlepage}
@@ -202,7 +202,7 @@
 	\section{Analiza zależności między }
 	Analizujemy zależność między ceną, a objętością. Przyjrzyjmy się zalezności naszych danych na wykresie.
 	\begin{figure}[H]\label{fig:v_vs_price}\centering
-		\includegraphics[width=4\columnwidth/5]{images/Budnik/v_vs_price.png}\caption{Wykres cena-objętość}
+		\includegraphics[width=4\columnwidth/5]{images/Budnik/v_vs_price.png}\caption{Wykres zależności ceny od objętość}
 	\end{figure}
 	Z wykresu możemy zauważyć silną zależność między naszymi danymi. Z powodu rozłożenia naszych danych zależność ta może być linowa. W celu określenia tej zależności obliczymy współczynnik korelacji pearsona
 	\begin{equation}
@@ -213,17 +213,17 @@
 	\begin{equation}\label{eq:reg}
 		Y_i=\beta_0+\beta_1x_i+\xi_i,
 	\end{equation}
-	gdzie $\xi_i$ jest losowym błędem pomiarowym. $Y_i$ jest zmienną losową, której realizacją jest zaobserwowana wartość $y_i$. Zgodnie z treścią polecenia zakładamy, że wszystkie zminne losowe $\xi_i$ są idd. oraz mają rozkład normalny ze średnią 0. Naszym zadaniem będzie estymować wartość $\hat y_i$ poprzez estymowanie realizacji zmiennych losowych $\hat \beta_0$ oraz $\hat\beta_1$.
+	gdzie $\xi_i$ jest losowym błędem pomiarowym. $Y_i$ jest zmienną losową, której realizacją jest zaobserwowana wartość $y_i$. Zgodnie z wytycznymi dotyczących naszego zadania, zakładamy, że wszystkie zminne losowe $\xi_i$ są idd. o rozkładzie normalny ze średnią 0. Naszym celem będzie estymować wartość $\hat y_i$ poprzez estymowanie realizacji zmiennych losowych $\hat \beta_0$ oraz $\hat\beta_1$.
 	\subsection{Estymacja punktowa}
-	By stworzyć estymator ceny $\hat y$ skorzystamy z metody najmniejszych kwadratów. Do estymacji parametrów $\beta_0$ oraz $\beta_1$, występujące we wzorze \eqref{eq:reg}, wykorzystamy losowo wybrane $80\%$ naszych danych. Pozostałe $20\%$ posłuży nam w celu sprawdzenie poprawności modelu. Estymowane parametry, w danej realizacji $Y$, mają wartość
+	By stworzyć estymator ceny $\hat y$ skorzystamy z metody najmniejszych kwadratów. Do estymacji parametrów $\beta_0$ oraz $\beta_1$, występujące we wzorze \eqref{eq:reg}, wykorzystamy losowo wybrane $80\%$ naszych danych. Pozostałe $20\%$ posłuży nam w celu sprawdzenie poprawności modelu. Dane zostały wylosowane przy użyciu podstawowych funkcji języka \verb|Julia| z "inżynierskim" ziernem, a mianowicie \verb|1410|. Estymowane parametry, w zaobserwowanej realizacji $Y=(Y_1, Y_2,\cdots,Y_n)$, mają wartość
 	\begin{equation}
 		\hat\beta_1=\frac{\sum_{i=1}^n\left(x_i-\overline{x}\right)\left(y_i-\overline{y}\right)}
-		{\sum_{i=1}^n\left(x_i-\overline{x}\right)^2}\approx39.255 \quad \text{oraz} \quad
-		\hat\beta_0=\overline{y}-\beta_1\overline{x}\approx-1564.73.
+		{\sum_{i=1}^n\left(x_i-\overline{x}\right)^2}\approx39.089 \quad \text{oraz} \quad
+		\hat\beta_0=\overline{y}-\beta_1\overline{x}\approx-1548.34\ .
 	\end{equation}
-	Estymowana wartośc ceny $\hat y$ w modelu \eqref{eq:reg} będzie miała postać
+	Zatem estymowana wartośc ceny $\hat y$ modelu \eqref{eq:reg} będzie miała postać
 	\begin{equation}
-		\hat y_i = 39.255\cdot x_i -1564.73.
+		\hat y_i = 38.089\cdot x_i -1548.34\ .
 	\end{equation}
 	\subsection{Estymacja przedziałowa}
 	W tym przypadku będziemy szukać przedziału do w którym będzie należał nasz $Y_i$ z dużym prawdopodobieństwem. Będziemy chcieli by prowdopodobieństow to wynosiło $1-\alpha$. Znany jest fakt, że w modelu \eqref{eq:reg} zmienna $\hat{Y}_i$ ma poniższe parametry
@@ -234,18 +234,41 @@
 	\begin{equation}
 		s^2=\frac{1}{n-2}\sum_{i=1}^{n}\left(Y_i-\hat Y_i\right)
 	\end{equation}
-	otrzymując estymator $Var \hat Y_i$ i w tym przypadku zmienna losowa
+	otrzymując estymator $Var \hat Y_i$. W tym przypadku zmienna losowa
 	\begin{equation}
 		\frac{\hat Y_i-\mathbb{E}\hat Y_i}{s^2\left(\frac{1}{n}+\frac{(x_0-\overline{x})}{\sum_{i=1}^{n}\left(x_i-\overline{x}\right)^2}\right)}
 	\end{equation}
-	ma rozkład t-studenta z $n-2$ stopniami swobody. Niech $z_{\alpha/2}$ będzie $1-\alpha/2$ kwantylem z tego rozkładu. Wtedy możemy napisać, że 
+	ma rozkład t-studenta z $n-2$ stopniami swobody. Przez $z_{\alpha/2}$ będziemy oznaczać $1-\alpha/2$ kwantyl z właśnie tego rozkładu. Dla estymowane wartość $\hat Y_0$, dla znanej objętości, równej $x_0$ będzie zachodziła równość
 	\begin{equation}
 		\mathbb{P}\left(\hat Y_0 - z_{\alpha/2}s\sqrt{\frac{1}{n}+\frac{\left(x_0-\overline{x}\right)^2}{\sum_{i=1}^n\left(x_i-\overline{x}\right)^2}}\leq Y_0\leq\hat Y_0 + z_{\alpha/2}s\sqrt{\frac{1}{n}+\frac{\left(x_0-\overline{x}\right)^2}{\sum_{i=1}^n\left(x_i-\overline{x}\right)^2}}\right)=1-\alpha.
 	\end{equation}
-	Zatem naszymi przedziałami ufności dla danej realizacji $Y$ będzie 
-	
-	\subsection{}
+
+	Zatem naszym przedziałem ufności ceny dla objętości $x_0$ będzie przedział
+	\begin{equation}
+		\left(\hat y_0 - 	z_{\alpha/2}s\sqrt{\frac{1}{n}+\frac{\left(x_0-\overline{x}\right)^2}{\sum_{i=1}^n\left(x_i-\overline{x}\right)^2}}, \hat y_0 + z_{\alpha/2}s\sqrt{\frac{1}{n}+\frac{\left(x_0-\overline{x}\right)^2}{\sum_{i=1}^n\left(x_i-\overline{x}\right)^2}}\right).
+	\end{equation}
 
 
+
+ \section{Analiza residuów}
+ 	Podczas tworzenia modelu regresji liniowej oraz dalszych obliczeń zakładaliśmy następujące warunki
+ 	\begin{enumerate}
+ 		\item $\mathbb{E}\xi_i=0$;
+ 		\item $Var\xi<\infty$;
+ 		\item $\xi_i$ mają rozkład normalny;
+ 		\item $\xi_i\perp\!\!\!\perp\xi_j$ dla $i\neq j$.
+ 	\end{enumerate}
+ 	Do sprawdzienia tych warunków wykonamy analizę reziduów $e_i$ danych wzorem
+ 	\begin{equation}
+ 		e_i=y_i-\hat y_i
+ 	\end{equation}
+    Zaczniemy od sprawdzenia średniej rozkładu. W naszej próbie wynosi
+	\begin{equation}
+		\mathbb{E}\xi_i\approx\overline{e}=1.18e-8,
+	\end{equation}
+	zatem pierwsze założenie jest spełnione, co nie jest zaskakujące, uwzględniając, że skorzystaliśmy z metody najmniejszych kwadratów. Do wyestymowania wariancji posłużymy się estymatorem
+	\begin{equation}
+		s^2_k=\frac{1}{k-1}\sum\limits_{i=0}^k e_i.
+	\end{equation}
 
 \end{document}
