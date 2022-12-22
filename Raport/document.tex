@@ -62,8 +62,8 @@
 			
 			\textbf{\LARGE Autorzy}\\
 			\vspace{0.5cm}
-			\large Kacper Budnik 262286\\
-			\large Maciej Karczewski 262282\\
+			\large Kacper Budnik, 262286\\
+			\large Maciej Karczewski,, 262282\\
 			
 			
 			\vfill
@@ -111,8 +111,11 @@
 	Do naszych danych dodamy nową kolumną i nazwiemy ją "V". Nowa kolumna będzie iloczynem wymiarów diamentu ( kolumny "x", "y" oraz "z"). Ten iloczyn możemy interpretować jako objętość diamentu z dokładnością do przemnożonej stałej. Nową zmienną będziemy wyjaśniać cenę diamentu. W dalszej części raportu tą zmienną będziemy nazywać objętością lub iloczynem wymiarów.
 	
 	\subsection{Usunięcie wartości odstających}
-	W następnym kroku usuniemy $ 1 \% $ najmniejszych cen oraz  $ 10\%$ największych cen. Będziemy usuwać też  $ 1 \% $ najmniejszych objętości oraz  $ 5\%$ największych. Ostatecznie usuniemy około $12\%$ danych.
-	
+	Przed przystąpieniem do analizy danych, oczyściliśmy je, poprzez usunięcie obserwacje odstające z wykorzystywanych danych. W celu klasyfikacji tych obserwacji, wykorzystaliśmy znane nam metody. Za obserwacje odstające uznaliśmy dane, które
+	\begin{equation}
+		y\not\in\left(\vphantom{\frac{1}{1}}Q_1-IQR,Q_3+IQR\right),
+	\end{equation}
+	gdzie $y$ to kandydat na obserwacje odstającą, $Q_1$, $Q_3$ to dopowiednio pierwszy i trzeci kwantyl, a $IQR$ jest rozstęp międzykwantylowym. Po tej transformacji odrzuciliśmy blisko $10\%$ danych.
 	\section{Jednowymiarowa analiza}
 	\subsection{Objętość}
 	Analizę danych zaczniemy od analizy objętości. Box plot objętości wygląda następująco.
@@ -124,15 +127,16 @@
 		\label{fig:box_V_orginal}
 	\end{figure}
 	
-	Jak możemy zobaczyć na box plocie nasze dane mają dużo wartość odstających. Z tego powodu ciężko analizować wykres \ref{fig:box_V_orginal}, a także stworzyć poprawny model, dlatego pozbędziemy się ich. Gdy usuniemy $ 1 \% $ najmniejszych objętości oraz  $ 5\%$ największych otrzymamy czytelniejszy wykres.
+	Jak możemy zobaczyć na box plocie nasze dane mają dużo wartość odstających. Z tego powodu ciężko analizować wykres \ref{fig:box_V_orginal}, a także stworzyć poprawny model, dlatego pozbędziemy się ich. Po usunięciu obserwacji odstających otrzymamy czytelniejszy wykres.
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=4\columnwidth/5]{images/boxplot_V_danych_oczyszczonych.pdf}
+%		\includegraphics[width=4\columnwidth/5]{images/boxplot_V_danych_oczyszczonych.pdf}
+		\includegraphics[width=4\columnwidth/5]{images/Budnik/boxplot_V_danych.pdf}
 		\caption{Box plot objętości dla oczyszczonych danych}
 		\label{fig:box_V}
 	\end{figure}
-	Tutaj nasze dane są o wiele bardziej czytelne. Z wykresu \ref{fig:box_V} możemy odczytać, że mediana naszych danych wynosi około $100$ oraz, że mamy do czynienia z rozkładem prawostronnie skośnym. Widzimy też, że pierwszy kwantyl wynosi około $60$ a trzeci około $160$.
+	Tutaj nasze dane są o wiele bardziej czytelne. Z wykresu \ref{fig:box_V} możemy odczytać, że mediana naszych danych wynosi około $95$ oraz, że mamy do czynienia z rozkładem prawostronnie skośnym. Widzimy też, że pierwszy kwantyl wynosi około $60$ a trzeci około $160$.
 	Zobaczymy teraz jak wygląda rozkład objętości na histogramie.
 	\begin{figure}[H]
 		\centering
@@ -200,8 +204,8 @@
 	\end{table}
 	Możemy zobaczyć, że średnia jest większa od mediany, oraz że skośność jest dodatnia co sugeruje nam, że rozkład objętości jest prawostronnie skośny co się pokrywa za informacją zawartą na box plocie \ref{fig:box_price}. Kurtoza jest dodatnia  ale bliska $0$ to znaczy, że rozkład ma ogony grubsze niż rozkład normalny lub ma porównywalne do rozkładu normalnego. Zatem jest to rozkład leptokurtyczny lub mezokurtyczny. Wariancja ceny jest znacząco większa niż wariancja obiętości \ref{tab:statystyki_V}.  
 	
-	\section{Analiza zależności między }
-	Analizujemy zależność między ceną, a objętością. Przyjrzyjmy się zalezności naszych danych na wykresie.
+	\section{Analiza zależności między między ceną, a objętością diamentu}
+	Chcemy przeanalizować zależność między ceną, a objętością. Zanim rozpoczniemy analizę, przyjrzyjmy się zalezności naszych danych na wykresie.
 	\begin{figure}[H]\label{fig:v_vs_price}\centering
 		\includegraphics[width=4\columnwidth/5]{images/Budnik/v_vs_price.png}\caption{Wykres zależności ceny od objętość}
 	\end{figure}
@@ -263,9 +267,9 @@ Analizując wykres możemy zauważyć, że dane są w oklicach prostej regresyjn
  \section{Analiza residuów}
  	Podczas tworzenia modelu regresji liniowej oraz dalszych obliczeń zakładaliśmy następujące warunki
  	\begin{enumerate}
- 		\item $\mathbb{E}\xi_i=0$;
- 		\item $Var\xi<\infty$;
- 		\item $\xi_i$ mają rozkład normalny;
+ 		\item $\mathbb{E}\xi_i=0$ $\forall i$ ,
+ 		\item $Var\xi_i=\sigma^2<\infty\quad\forall i$,
+ 		\item $\xi_i$ mają rozkład normalny,
  		\item $\xi_i\perp\!\!\!\perp\xi_j$ dla $i\neq j$.
  	\end{enumerate}
  	Do sprawdzienia tych warunków wykonamy analizę residuów $e_i$ danych wzorem
@@ -276,9 +280,34 @@ Analizując wykres możemy zauważyć, że dane są w oklicach prostej regresyjn
 	\begin{equation}
 		\mathbb{E}\xi_i\approx\overline{e}=1.18e-8,
 	\end{equation}
-	zatem pierwsze założenie jest spełnione, co nie jest zaskakujące, uwzględniając, że skorzystaliśmy z metody najmniejszych kwadratów. Do wyestymowania wariancji posłużymy się estymatorem
-	\begin{equation}
-		s^2_k=\frac{1}{k-1}\sum\limits_{i=0}^k e_i.
-	\end{equation}
+	zatem średnia residuów jest równa zeru, co nie jest zaskakujące, uwzględniając, że skorzystaliśmy z metody najmniejszych kwadratów. Przeanalizujmy jeszcze wykres residuów na poniższym wykresie.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=4\columnwidth/5]{images/Budnik/res_V.png}
+		\caption{Zależność residuów od objętości.}
+	\end{figure}
+	Na wykresie wyraźnie widać, że dla małych objętości wszystkie residua są znacznie większe od zera, więc ich wartość oczekiwana nie może być bliska zeru. Dodatkowo możemy zauważyć, że wraz ze zwiększającą się objętością, zwiększa się wariancja. Zatem pierwsze założenia, jak i drugie, nie są spełnione. Do sprawdzenia założenia trzeciego o normalności rozkładu sprawdzimy wykorzystując histogram residuów.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=4\columnwidth/5]{images/Budnik/res_hist.png}
+		\caption{Histogram residuów z nałożoną gęstością rozkładu normalnego z odpowiednimi parametrami.}
+	\end{figure}
+	Na wykresie widzimy, że histogram nie pokrywa się z gęstością teoretyczną. Przed odzuceniem założenia trzeciego, porównajmy jeszcze dystrybuantę naszych residuów oraz rozkładu normalnego oraz oba rozkłady na qqplocie.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=4\columnwidth/5]{images/Budnik/not_zal_3.png}
+		\caption{Porównanie rozkładu residuów z rozkładem normalnym.}
+	\end{figure}
+	Również na tych wykresach widzimy znaczną różnicę między między oboma rozkładami. Możemy więc z pewnością stwierdzić, że rozkład residuów nie jest normalny. Do sprawdzenia pozostaje nam założenie o niezależności błędu. W tym celu sprawdzimy, czy nasze zmienne są skorelowane.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=4\columnwidth/5]{images/Budnik/corr.png}
+		\caption{Estymator funkcji autokowariancji dla residuów.}
+	\end{figure}
+	Niezależnie od użytego estymatora funkcji autokorelacji, otrzymujemy winiki znacznie przekraczające zero. Dlatego możemy wywnioskować, że nasze dane są zależne, zatem czwarte założenie również musimy odrzucić.
+	
+	
+	
+	
 
 \end{document}

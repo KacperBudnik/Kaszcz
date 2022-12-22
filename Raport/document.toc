@@ -5,7 +5,7 @@
 \contentsline {section}{\numberline {3}Jednowymiarowa analiza}{3}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Objętość}{3}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Cena}{5}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Analiza zależności między }{7}{section.4}%
+\contentsline {section}{\numberline {4}Analiza zależności między między ceną, a objętością diamentu}{7}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Estymacja punktowa}{8}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Estymacja przedziałowa}{8}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Predykcja danych}{9}{subsection.4.3}%
