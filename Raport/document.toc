@@ -10,3 +10,4 @@
 \contentsline {subsection}{\numberline {4.2}Estymacja przedziałowa}{8}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Predykcja danych}{8}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Analiza residuów}{9}{section.5}%
+\contentsline {section}{\numberline {6}Wnioski autorów}{12}{section.6}%

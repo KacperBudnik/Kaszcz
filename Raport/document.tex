@@ -63,7 +63,7 @@
 			\textbf{\LARGE Autorzy}\\
 			\vspace{0.5cm}
 			\large Kacper Budnik, 262286\\
-			\large Maciej Karczewski,, 262282\\
+			\large Maciej Karczewski, 262282\\
 			
 			
 			\vfill
@@ -100,7 +100,7 @@
 				7 & 0.24 & Very Good & I & VVS1 & 62.3 & 57 & 336 & 3.95 & 3.98 & 2.47 \\ \hline
 			\end{tabular}%
 		}
-		\caption{Oryginalne dane }
+		\caption{Oryginalne dane.}
 		\label{orginalne_dane}
 	\end{table}
 	
@@ -123,7 +123,7 @@
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=3\columnwidth/4]{images/boxplot_V_danych.pdf}
-		\caption{Boxplot objętości dla podstawowych danych}
+		\caption{Boxplot objętości dla podstawowych danych.}
 		\label{fig:box_V_orginal}
 	\end{figure}
 	
@@ -133,7 +133,7 @@
 		\centering
 %		\includegraphics[width=4\columnwidth/5]{images/boxplot_V_danych_oczyszczonych.pdf}
 		\includegraphics[width=3\columnwidth/4]{images/Budnik/boxplot_V_danych.pdf}
-		\caption{Box plot objętości dla oczyszczonych danych}
+		\caption{Box plot objętości dla oczyszczonych danych.}
 		\label{fig:box_V}
 	\end{figure}
 	Tutaj nasze dane są o wiele bardziej czytelne. Z wykresu \ref{fig:box_V} możemy odczytać, że mediana naszych danych wynosi około $95$ oraz, że mamy do czynienia z rozkładem prawostronnie skośnym. Widzimy też, że pierwszy kwantyl wynosi około $60$ a trzeci około $160$.
@@ -141,7 +141,7 @@
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=4\columnwidth/5]{images/histogram_V.pdf}
-		\caption{Histogram objętości dla oczyszczonych danych}
+		\caption{Histogram objętości dla oczyszczonych danych.}
 		\label{fig:hist_V}
 	\end{figure}
 	Jak widzimy na histogramie gęstość nie zachowuje się monotoniczne, ciężko stwierdzić jaki rozkład ma objętość. Pomimo tego faktu możemy zauważyć, że diamenty dzielą się głównie na $4$ grupy. Pierwszą, najliczniejszą, jest grupa o iloczynie wymiarów należących do przedziału $[45;70] $, następną jest grupa o iloczynie należącym do $[80;100]$. Pozostałymi grupami są iloczyny należące do przedziałów $[110;120]$ oraz $[160;170]$.
@@ -156,7 +156,7 @@
 				V & $113.48$ & $100.87$ & $3057.10$ & $0.60$ & $-0.63$ \\ \hline
 			\end{tabular}%
 		}
-		\caption{Podstawowe statystyki opisowe dla objętości}
+		\caption{Podstawowe statystyki opisowe dla objętości.}
 		\label{tab:statystyki_V}
 	\end{table}
 	Możemy zobaczyć, że średnia jest większa  od mediany, oraz że skośność jest dodatnia co sugeruje nam, że rozkład objętości jest prawostronnie skośny, co się pokrywa za informacją zawartą na box plocie \ref{fig:box_V}. Kurtoza jest ujemna to znaczy, że rozkład ma ogony węższe niż rozkład normalny czyli jest rozkładem platykurtycznym. 
@@ -167,7 +167,7 @@
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=4\columnwidth/5]{images/boxplot_price_danych.pdf}
-		\caption{Boxplot ceny dla podstawowych danych}
+		\caption{Boxplot ceny dla podstawowych danych.}
 		\label{fig:box_price_orginal}
 	\end{figure}
 	
@@ -176,7 +176,7 @@
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=4\columnwidth/5]{images/boxplot_price_danych_oczyszczonych.pdf}
-		\caption{Box plot ceny dla oczyszczonych danych}
+		\caption{Box plot ceny dla oczyszczonych danych.}
 		\label{fig:box_price}
 	\end{figure}
 	Po usunięciu danych skrajnych wykres pudełkowy staje się czytelniejszy. Z wykresu możemy odczytać, że mediana cen jest w okolicy $2000$, natomiast pierwszy w okolicach $1000$, a trzeci w okolicach $4300$. Możemy sądzić, że rozkład ceny jest prawostronnie skośny.
@@ -184,7 +184,7 @@
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=4\columnwidth/5]{images/histogram_price.pdf}
-		\caption{Histogram ceny diamentów}
+		\caption{Histogram ceny diamentów.}
 		\label{fig:hist_price}
 	\end{figure}
  Z histogramu możemy odczytać, że gęstość prawdopodobieństwa ceny jest prawie monotoniczna. Im większa cena tym na ogół, rzadszy diament. Możemy zobaczyć, że mamy najwięcej diamentów tanich nieprzekraczających $2500$ . Możemy także zobaczyć większą liczebność diamentów z ceną w okolicach $4000$. 
@@ -199,7 +199,7 @@
 				Cena &$2890.46$ & $2064.0$ 	 & $5.49 \cdot 10^6 $ & $1.02$  &$0.10$ \\ \hline
 			\end{tabular}%
 		}
-		\caption{Podstawowe statystyki opisowe dla objętości}
+		\caption{Podstawowe statystyki opisowe dla objętości.}
 		\label{tab:statystyki_price}
 	\end{table}
 	Możemy zobaczyć, że średnia jest większa od mediany, oraz że skośność jest dodatnia co sugeruje nam, że rozkład objętości jest prawostronnie skośny co się pokrywa za informacją zawartą na box plocie \ref{fig:box_price}. Kurtoza jest dodatnia, ale bliska $0$ to znaczy, że rozkład ma ogony grubsze niż rozkład normalny lub ma porównywalne do rozkładu normalnego. Zatem jest to rozkład leptokurtyczny lub mezokurtyczny. Wariancja ceny jest znacząco większa niż wariancja obiętości w tabeli\ref{tab:statystyki_V}.  
@@ -207,14 +207,20 @@
 	\section{Analiza zależności między między ceną, a objętością diamentu}
 	Po omówieniu danych oraz ich wstępnym przetworzeniu, możemy przystąpić do analizy. Celem naszym będzie przeanalizować zależność między ceną, a objętością oraz dopasowanie krzywej regresji. Zanim rozpoczniemy analizę, w celu określenia rodzaju zależności, przyjrzyjmy się wykresowi zależności między danymi. %Zanim rozpoczniemy analizę, przyjrzyjmy się ich zależności na wykresie.
 	\begin{figure}[H]\label{fig:v_vs_price}\centering
-		\includegraphics[width=4\columnwidth/5]{images/Budnik/v_vs_price.png}\caption{Wykres zależności ceny od objętość}
+		\includegraphics[width=4\columnwidth/5]{images/Budnik/v_vs_price.png}\caption{Wykres zależności ceny od objętość.}
 	\end{figure}
-	\noindent Na wykresie możemy zauważyć silną zależność między naszymi danymi. Z powodu rozłożenia naszych danych, zależność ta może być liniowa. W celu określenia tej zależności obliczymy współczynnik korelacji pearsona
+	\noindent Na wykresie możemy zauważyć silną zależność między naszymi danymi. Z powodu rozłożenia naszych danych, zależność ta może być liniowa. W celu określenia tej zależności obliczymy podstawowe statystyki
+	\begin{itemize}
+		\item $SST=\sum_{i=1}^n(y_i-\overline{y})^2\approx1.409e11$,
+		\item $SSE=\sum_{i=1}^n(\hat y_i-y_i)^2\approx2.015e10$,
+		\item $SSR=\sum_{i=1}^n(\hat y_i-\overline{y})^2\approx1.207e11$,
+	\end{itemize}
+	oraz, najbardziej nas interesujący, współczynnik korelacji Pearsona
 	\begin{equation}
 		\rho=\frac{\sum_{i=1}^n\left(x_i-\overline{x}\right)\left(y_i-\overline{y}\right)}
 		{\sqrt{\sum_{i=1}^n\left(x_i-\overline{x}\right)^2}\sqrt{\sum_{i=1}^n\left(y_i-\overline{y}\right)^2}}\approx0.93,
 	\end{equation}
-	gdzie $x_i$, $y_i$ to $i$-te obserwacje odpowiednio objętości oraz ceny, $\overline{x}$ oznacza średnią z $x$, a $n$ to rozmiar próby, oznaczeniami tymi będziemy posługiwali się w całym raporcie. Wartość ta jest blisko wartości $1$, zatem nasze dane są silnie skorelowane dodatnie oraz liniowo. Dlatego, model którym będziemy opisywać dane będzie miał postać
+	gdzie $x_i$, $y_i$ to $i$-te obserwacje odpowiednio objętości oraz ceny, $\overline{x}$ oznacza średnią z $x$, a $n$ to rozmiar próby, oznaczeniami tymi będziemy posługiwali się w całym raporcie. Wartość ta jest blisko wartości $1$, zatem nasze dane są silnie skorelowane dodatnie oraz liniowo. Dodatkowo wartości $SST$ oraz $SSR$ są relatywnie blisko siebie, a suma błędów $SSE$ jest rząd mniejsza od pozostałych. W tym przypadku regresja liniowa powinna być odpowiednim wyborem. Dlatego, model którym będziemy opisywać dane będzie miał postać
 	\begin{equation}\label{eq:reg}
 		Y_i=\beta_0+\beta_1x_i+\xi_i,
 	\end{equation}
@@ -259,8 +265,8 @@
      
 	\begin{figure}[H]
 	\centering
-	\includegraphics[width=7\columnwidth/10]{images/prediction.png}
-	\caption{Dane testowe}
+	\includegraphics[width=4\columnwidth/5]{images/prediction.png}
+	\caption{Dane testowe.}
 	\label{fig:prediction}
 \end{figure}
 Analizując wykres możemy zauważyć, że dane są w oklicach prostej regresyjnej \eqref{eq:model} dla małych obiętości. Wraz ze wzrostem iloczynu wymiarów rośnie też odległość danych od prostej. Do podobnych wniosków możemy dojść analizując przedziały ufności \eqref{eq:ufność} dla naszych danych. Fakt ten może sugerować nam, że objętość nie wpływa liniowo na cenę diamentu lub, że założenia dotyczące modelu nie okazały się poprawne.
@@ -292,13 +298,13 @@ Na poprawność regresji może wpływać również fakt, że diamenty mają jesz
 	Na wykresie wyraźnie widać, że dla małych objętości wszystkie residua są znacznie większe od zera, więc ich wartość oczekiwana nie może być bliska zeru. Dodatkowo możemy zauważyć, że wraz ze zwiększającą się objętością, zwiększa się wariancja. Zatem pierwsze, jak i drugie założenie, nie jest spełnione. Do sprawdzenia założenia trzeciego o normalności rozkładu sprawdzimy wykorzystując histogram residuów.
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=7\columnwidth/10]{images/Budnik/res_hist.png}
+		\includegraphics[width=4\columnwidth/5]{images/Budnik/res_hist.png}
 		\caption{Histogram residuów z nałożoną gęstością rozkładu normalnego.}
 	\end{figure}
 	Na wykresie widzimy, że histogram nie pokrywa się z gęstością teoretyczną. Przed odrzuceniem założenia trzeciego, porównajmy jeszcze dystrybuantę naszych residuów oraz rozkładu normalnego oraz oba rozkłady na qqplocie.
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=7\columnwidth/10]{images/Budnik/not_zal_3.png}
+		\includegraphics[width=4\columnwidth/5]{images/Budnik/not_zal_3.png}
 		\caption{Porównanie rozkładu residuów z rozkładem normalnym.}
 	\end{figure}
 	Również na tych wykresach widzimy znaczną różnicę między rozpatrywanymi rozkładami. Możemy więc z pewnością stwierdzić, że rozkład residuów nie jest normalny. Do sprawdzenia pozostaje nam założenie o niezależności błędu. W tym celu sprawdzimy, czy nasze zmienne są skorelowane.
@@ -307,10 +313,11 @@ Na poprawność regresji może wpływać również fakt, że diamenty mają jesz
 		\includegraphics[width=4\columnwidth/5]{images/Budnik/corr.png}
 		\caption{Estymator funkcji autokowariancji dla residuów.}
 	\end{figure}
-	Niezależnie od użytego estymatora funkcji autokorelacji, otrzymujemy wyniki znacznie przekraczające zero. Dlatego możemy wywnioskować, że nasze dane są zależne, zatem czwarte założenie również musimy odrzucić.
+	Wartości w estymatora autokowariancji nie są zerowe na prawo od początku układu współrzędnych, więc nasze residua są skorelowane. Dlatego możemy wywnioskować, że nasze dane są zależne, zatem czwarte założenie również musimy odrzucić.
 	
-	
-	
+	\section{Wnioski autorów}
+	Początkowo wydawało się, że to model liniowy jednej zmiennej może dobrze estymować cenę. Niestety wynik końcowy zaprzeczył temu. Pomimo nawet współczynnika korelacji Pearsona bliskiego wartości 1.\\
+	Możemy wywnioskować stąd, że cena diamentów nie zależy liniowo od ich objętości, ale ma ona znaczący wpływ na ich wartość, w szczególności dla małych rozmiarów. Wraz z rozmiarem rosła wariancja drogocennego kruszcu, a cena była rozłożona bardziej nieprzewidywalnie. Naszą hipotezą jest, że planując zakup diamentu o małej cenie, głównym kryterium będzie jego rozmiar. Jeśli nasz budżet na zakup jest większy, rozmiar schodzi na kolejny plan, ustępując miejsca innym własnością, takim jak na przykład przejrzystość, kolor, czy doskonałość cięcia.
 	
 
 \end{document}
