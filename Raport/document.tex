@@ -81,8 +81,9 @@
 	\newpage
 	
 	\section{Wprowadzenie}
+	Diamenty są krystalicznym węglem, najtwardszym znanym materiałem na Ziemi. Są one tworzone w głębi Ziemi, w wysokich temperaturach i ciśnieniach, a ich wydobycie wymaga specjalistycznej wiedzy i wielu lat doświadczenia. Diamenty są najcenniejszymi kamieniami szlachetnymi na świecie i są cenione zarówno przez osoby prywatne, jak i przez przemysł jubilerski. Blask i niezwykła trwałość diamentów sprawiają, że są one bardzo cenione, a ich cena zależy od wielu czynników, takich jak kolor, czystość, kształt i wielkość. Najcenniejsze diamenty są przezroczyste i bezbarwne, choć mogą też być innego koloru np.  żółte, niebieskie, czerwone czy zielone.
 	
-	Diamenty są rzadkim minerałem, ale bardzo cennym. Są one czystym węglem i mają wiele zastosować. Używa się ich przykładowo do aparatury naukowej czy medycznej. Diamenty używa się także w jubilerstwie.
+	Diamenty są często wykorzystywane do produkcji biżuterii. Są również używane  w  narzędziach do cięcia i szlifowania oraz w elektronice. W ostatnich latach diamenty zaczęły być również używane jako narzędzia do badań naukowych, ponieważ ich niezwykła trwałość i twardość sprawiają, że są one idealnymi materiałami do wielu zastosowań.
 	
 	Dane o diamentach pozyskujemy z platformy \href{https://www.kaggle.com}{Kaggle}. Nasze dane zawierają $53940$ rekordów i pierwsze $7$ wierszy wygląda następująco:
 	\begin{table}[H]
@@ -107,7 +108,7 @@
 	\section{Transformacja danych}
 	
 	\subsection{Dodanie nowej kolumny }
-	Do naszych danych dodamy nową kolumną i nazwiemy ją "V". Nawo kolumna będzie iloczynem wymiarów diamentu ( kolumny "x", "y" oraz "z"). Ten iloczyn możemy interpretować jako objętość diamentu z dokładnością do przemnożonej stałej. Nową zmienną będziemy wyjaśniać cenę diamentu.
+	Do naszych danych dodamy nową kolumną i nazwiemy ją "V". Nowa kolumna będzie iloczynem wymiarów diamentu ( kolumny "x", "y" oraz "z"). Ten iloczyn możemy interpretować jako objętość diamentu z dokładnością do przemnożonej stałej. Nową zmienną będziemy wyjaśniać cenę diamentu. W dalszej części raportu tą zmienną będziemy nazywać objętością lub iloczynem wymiarów.
 	
 	\subsection{Usunięcie wartości odstających}
 	W następnym kroku usuniemy $ 1 \% $ najmniejszych cen oraz  $ 10\%$ największych cen. Będziemy usuwać też  $ 1 \% $ najmniejszych objętości oraz  $ 5\%$ największych. Ostatecznie usuniemy około $12\%$ danych.
@@ -123,7 +124,7 @@
 		\label{fig:box_V_orginal}
 	\end{figure}
 	
-	Jak możemy zobaczyć na box plocie to nasze dane mają dużo wartość odstających. Z tego powodu ciężko analizować wykres \ref{fig:box_V_orginal}, a także stworzyć poprawny model dlatego pozbędziemy się ich. Gdy usuniemy $ 1 \% $ najmniejszych objętości oraz  $ 5\%$ największych otrzymamy czytelniejszy wykres.
+	Jak możemy zobaczyć na box plocie nasze dane mają dużo wartość odstających. Z tego powodu ciężko analizować wykres \ref{fig:box_V_orginal}, a także stworzyć poprawny model, dlatego pozbędziemy się ich. Gdy usuniemy $ 1 \% $ najmniejszych objętości oraz  $ 5\%$ największych otrzymamy czytelniejszy wykres.
 	
 	\begin{figure}[H]
 		\centering
@@ -139,25 +140,25 @@
 		\caption{Histogram objętości dla oczyszczonych danych}
 		\label{fig:hist_V}
 	\end{figure}
-	Jak widzimy na histogramie gęstość na histogramie nie zachowuję się monotoniczne, ciężko stwierdzić jaki rozkład ma objętość. Pomimo tego faktu możemy zauważyć że diamenty dzielą się głównie na $4$ grupy. Pierwszą najbardziej liczą jest grupa o iloczynie wymiarów należących do przedziału $[45;70] $, następną grupą jest o iloczynie należącym do $[80;100]$. Pozostałymi grupami są iloczyny należące do przedziałów $[110;120]$ oraz $[160;170]$.
+	Jak widzimy na histogramie gęstość na histogramie nie zachowuję się monotoniczne, ciężko stwierdzić jaki rozkład ma objętość. Pomimo tego faktu możemy zauważyć, że diamenty dzielą się głównie na $4$ grupy. Pierwszą najbardziej liczą jest grupa o iloczynie wymiarów należących do przedziału $[45;70] $, następną grupą jest o iloczynie należącym do $[80;100]$. Pozostałymi grupami są iloczyny należące do przedziałów $[110;120]$ oraz $[160;170]$.
 	
-	Zobaczymy teraz jak wyglądają statystyki opisowe dla naszych oczyszczonych danych
+	Zobaczymy teraz jak wyglądają statystyki opisowe dla naszych oczyszczonych danych.
 	
 	\begin{table}[H]
 		\resizebox{\textwidth}{!}{%
 			\begin{tabular}{|l|l|l|l|l|l|}
 				\hline
 				& Średnia & Mediana & Wariancja & Skośność & Kurtoza \\ \hline
-				V & 113.48 & 100.87 & 3057.10 & 0.60 & -0.63 \\ \hline
+				V & $113.48$ & $100.87$ & $3057.10$ & $0.60$ & $-0.63$ \\ \hline
 			\end{tabular}%
 		}
 		\caption{Podstawowe statystyki opisowe dla objętości}
 		\label{tab:statystyki_V}
 	\end{table}
-	Możemy zobaczyć, że średnia jest większa  od mediany oraz, że skośność jest dodatnia co sugeruje nam, że rozkład objętości jest prawostronnie skośny co się pokrywa za informacją zawartą na box plocie \ref{fig:box_V}. Kurtoza jest ujemna to znaczy, że rozkład ma ogony węższe niż rozkład normalny czyli jest rozkładem platykurtycznym. 
+	Możemy zobaczyć, że średnia jest większa  od mediany, oraz że skośność jest dodatnia co sugeruje nam, że rozkład objętości jest prawostronnie skośny co się pokrywa za informacją zawartą na box plocie \ref{fig:box_V}. Kurtoza jest ujemna to znaczy, że rozkład ma ogony węższe niż rozkład normalny czyli jest rozkładem platykurtycznym. 
 	
 	\subsection{Cena}
-	Sprawdziliśmy jak wygląda rozkład objętości to to teraz sprawdzimy rozkład ceny diamentów.
+	Sprawdziliśmy jak wygląda rozkład objętości to teraz sprawdzimy rozkład ceny diamentów.
 	Box Plot dla ceny diamentów bez usunięcia wartości skrajnych wygląda następująco.
 	\begin{figure}[H]
 		\centering
@@ -182,7 +183,7 @@
 		\caption{Histogram ceny diamentów}
 		\label{fig:hist_price}
 	\end{figure}
- Z histogramu możemy odczytać, że gęstośći prawdopodobieństwa ceny jest prawie monotoniczna. Im większa cena tym na ogół, rzadszy diament. Możemy zobaczyć, że mamy najwięcej diamentów tanich nieprzekraczających $2500$ . Możemy także zobaczyć większą liczebność diamentów z ceną w okolicach $4000$. 
+ Z histogramu możemy odczytać, że gęstość prawdopodobieństwa ceny jest prawie monotoniczna. Im większa cena tym na ogół, rzadszy diament. Możemy zobaczyć, że mamy najwięcej diamentów tanich nieprzekraczających $2500$ . Możemy także zobaczyć większą liczebność diamentów z ceną w okolicach $4000$. 
  
 		Zobaczymy teraz jak wyglądają statystyki opisowe dla naszych oczyszczonych danych
 	
@@ -191,13 +192,13 @@
 			\begin{tabular}{|l|l|l|l|l|l|}
 				\hline
 				& Średnia & Mediana & Wariancja & Skośność & Kurtoza \\ \hline
-				Cena &2890.46 & 2064.0 	 & 5.49 & 1.02  &0.10 \\ \hline
+				Cena &$2890.46$ & $2064.0$ 	 & $5.49 \cdot 10^6 $ & $1.02$  &$0.10$ \\ \hline
 			\end{tabular}%
 		}
 		\caption{Podstawowe statystyki opisowe dla objętości}
 		\label{tab:statystyki_price}
 	\end{table}
-	Możemy zobaczyć, że średnia jest większa od mediany, oraz że skośność jest dodatnia co sugeruje nam, że rozkład objętości jest prawostronnie skośny co się pokrywa za informacją zawartą na box plocie \ref{fig:box_price}. Kurtoza jest dodatnia  ale bliska $0$ to znaczy, że rozkład ma ogony grubsze niż rozkład normalny lub ma porównywalne do rozkładu normalnego. Zatem jest to rozkłąd leptokurtyczny lub mezokurtyczny. Warincja ceny jest znacząco mniejsza niż wariancja obiętości \ref{tab:statystyki_V}.  
+	Możemy zobaczyć, że średnia jest większa od mediany, oraz że skośność jest dodatnia co sugeruje nam, że rozkład objętości jest prawostronnie skośny co się pokrywa za informacją zawartą na box plocie \ref{fig:box_price}. Kurtoza jest dodatnia  ale bliska $0$ to znaczy, że rozkład ma ogony grubsze niż rozkład normalny lub ma porównywalne do rozkładu normalnego. Zatem jest to rozkład leptokurtyczny lub mezokurtyczny. Wariancja ceny jest znacząco większa niż wariancja obiętości \ref{tab:statystyki_V}.  
 	
 	\section{Analiza zależności między }
 	Analizujemy zależność między ceną, a objętością. Przyjrzyjmy się zalezności naszych danych na wykresie.
@@ -222,7 +223,7 @@
 		\hat\beta_0=\overline{y}-\beta_1\overline{x}\approx-1548.34\ .
 	\end{equation}
 	Zatem estymowana wartośc ceny $\hat y$ modelu \eqref{eq:reg} będzie miała postać
-	\begin{equation}
+	\begin{equation}\label{eq:reg_model}
 		\hat y_i = 38.089\cdot x_i -1548.34\ .
 	\end{equation}
 	\subsection{Estymacja przedziałowa}
@@ -244,12 +245,21 @@
 	\end{equation}
 
 	Zatem naszym przedziałem ufności ceny dla objętości $x_0$ będzie przedział
-	\begin{equation}
+	\begin{equation}\label{eq:ufność}
 		\left(\hat y_0 - 	z_{\alpha/2}s\sqrt{\frac{1}{n}+\frac{\left(x_0-\overline{x}\right)^2}{\sum_{i=1}^n\left(x_i-\overline{x}\right)^2}}, \hat y_0 + z_{\alpha/2}s\sqrt{\frac{1}{n}+\frac{\left(x_0-\overline{x}\right)^2}{\sum_{i=1}^n\left(x_i-\overline{x}\right)^2}}\right).
 	\end{equation}
-
-
-
+     
+     \subsection{Predykcja danych}
+     Tak jak wspominaliśmy $ 20\% $ danych posłuży nam do sprawdzenia modelu. Dla tych danych przyjrzymy się wartością rzeczywistym, estymowanym punktowo oraz przedziałowo.
+     
+     
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=4\columnwidth/5]{images/prediction.png}
+	\caption{Dane testowe}
+	\label{fig:prediction}
+\end{figure}
+Analizując wykres możemy zauważyć, że dane są w oklicach prostej regresyjnej \ref{eq:reg_model} dla małych obiętości. Wraz ze wzrostem iloczynu wymiarów rośnie też odległość danych od prostej. Do podobnych wniosków możemy dojść analizując przedziały ufności dla naszych danych \ref{eq:ufność}. Fakt ten może sugerować nam, że objętość nie wpływa liniowo na cenę diamentu, w szczególności cena większych diamentów  nie jest liniowa od iloczynu wymiarów diamentu. Może wpływać na to fakt, że diamenty mają jeszcze inne cechy, których tutaj nie bierzemy pod uwagę. 
  \section{Analiza residuów}
  	Podczas tworzenia modelu regresji liniowej oraz dalszych obliczeń zakładaliśmy następujące warunki
  	\begin{enumerate}
@@ -258,7 +268,7 @@
  		\item $\xi_i$ mają rozkład normalny;
  		\item $\xi_i\perp\!\!\!\perp\xi_j$ dla $i\neq j$.
  	\end{enumerate}
- 	Do sprawdzienia tych warunków wykonamy analizę reziduów $e_i$ danych wzorem
+ 	Do sprawdzienia tych warunków wykonamy analizę residuów $e_i$ danych wzorem
  	\begin{equation}
  		e_i=y_i-\hat y_i
  	\end{equation}
