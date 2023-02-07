@@ -70,7 +70,7 @@
 			
 			\vspace{0.4cm}
 			
-			\includegraphics[width=0.60\textwidth]{images/logo.PNG}
+
 			
 			\vspace{0.8cm}
 			Wydział Matematyki	
@@ -104,46 +104,30 @@
 		\label{orginalne_dane}
 	\end{table}
 	
-	Dla naszych danych sprawdzimy liniową zależność ceny ("price") od iloczynu wymiarów diamentu.
-	\section{Transformacja danych}
-	
-	\subsection{Dodanie nowej kolumny }
-	Do naszych danych dodamy nową kolumną i nazwiemy ją "V". Nowa kolumna będzie iloczynem wymiarów diamentu ( kolumny "x", "y" oraz "z"). Ten iloczyn, ponieważ rozptrywane diamenty mają podobne kształty, możemy interpretować jako ich objętość, z dokładnością do przemnożonej stałej. Nową zmienną będziemy wyjaśniać cenę diamentu. W dalszej części raportu tą zmienną będziemy nazywać objętością lub iloczynem wymiarów.
-	
-	\subsection{Usunięcie wartości odstających}
-	Przed przystąpieniem do analizy danych, oczyściliśmy je, poprzez usunięcie obserwacji odstających z wykorzystywanych danych. W celu klasyfikacji tych obserwacji, wykorzystaliśmy znane nam metody. Za obserwacje odstające uznaliśmy dane, które
+
+	\section{Przygotowanie danych do analizy}
+	Analizowane dane obejmują okres od listopada 1996 roku, jednak w pierwszych latach dane były pobierane w różnych odstępach czasu. Dlatego rozpatrujemy dane z okresu od 1 stycznia 2008 do 31 grudnia 2015 roku, równo 8 lat. Pozostałe dane tj. pochodzące z okresu 1 styczeń 2016 -- 24 kwiecień 2017 pozostawiliśmy jako dane testowe. W tych okresach pomiary były robione 8 razy dziennie, co 3 godziny każdy, rzadkie przypadki pomiarów w dodatkowych porach zostały pominięte. Za obserwacje odstające uznaliśmy te, które spełniają poniższą własność
 	\begin{equation}
-		y\not\in\left(\vphantom{\frac{1}{1}}Q_1-IQR,Q_3+IQR\right),
+		y\notin\left(Q_1-1.5IQR,Q_3+1.5IQR\right),
 	\end{equation}
-	gdzie $y$ to kandydat na obserwacje odstającą, $Q_1$, $Q_3$ to dopowiednio pierwszy i trzeci kwantyl, a $IQR$ jest rozstęp międzykwantylowym. Po tej transformacji odrzuciliśmy blisko $10\%$ danych.
+	gdzie $y$ jest kandydatem na obserwacje odstającą, $Q_1$ i $Q_3$ to odpowiednio pierwszy i trzeci kwantyl, a $IQR$ jest rozstępem międzykwantylowym. W wyniku tej obserwacji odrzuciliśmy jedynie 4 obserwacje rzędu 90$^\circ$C. Pozostałe wyniki należą do przedziału od 1$^\circ$C do 47$^\circ$C. Naszym celem jest analiza średniej dziennej temperatury, zatem w kolejnym kroku obliczyliśmy tą średnią. Jej wartości mieszą się w przedziale od 6$^\circ$C do 40$^\circ$C. Uzyskane średnie temperatury rzeczywiście były osiągane w Indiach w odpowiednich czasach.
+	
+	
+	\section{Dekompozycja szeregu czasowego}
+	Dekompozycję zaczniemy od analizy wykresów funkcji autokowariancji oraz częściowej autokowariancji. Prezentują się one następująco
+	\begin{figure}[H]
+		\includegraphics[width=\columnwidth]{Budnik/img/auto_dry.png}
+	\end{figure}
+	
 	\section{Jednowymiarowa analiza}
 	\subsection{Objętość}
 	Analizę danych zaczniemy od analizy objętości. Box plot objętości wygląda następująco.
-	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=3\columnwidth/4]{images/boxplot_V_danych.pdf}
-		\caption{Boxplot objętości dla podstawowych danych.}
-		\label{fig:box_V_orginal}
-	\end{figure}
-	
+
 	Jak możemy zobaczyć na box plocie nasze dane mają dużo wartość odstających. Z tego powodu ciężko analizować wykres \ref{fig:box_V_orginal}, a także stworzyć poprawny model, dlatego pozbędziemy się ich. Po usunięciu obserwacji odstających otrzymamy czytelniejszy wykres.
-	
-	\begin{figure}[H]
-		\centering
-%		\includegraphics[width=4\columnwidth/5]{images/boxplot_V_danych_oczyszczonych.pdf}
-		\includegraphics[width=3\columnwidth/4]{images/Budnik/boxplot_V_danych.pdf}
-		\caption{Box plot objętości dla oczyszczonych danych.}
-		\label{fig:box_V}
-	\end{figure}
+
 	Tutaj nasze dane są o wiele bardziej czytelne. Z wykresu \ref{fig:box_V} możemy odczytać, że mediana naszych danych wynosi około $95$ oraz, że mamy do czynienia z rozkładem prawostronnie skośnym. Widzimy też, że pierwszy kwantyl wynosi około $60$ a trzeci około $160$.
 	Zobaczymy teraz jak wygląda rozkład objętości na histogramie.
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=4\columnwidth/5]{images/histogram_V.pdf}
-		\caption{Histogram objętości dla oczyszczonych danych.}
-		\label{fig:hist_V}
-	\end{figure}
+
 	Jak widzimy na histogramie gęstość nie zachowuje się monotoniczne, ciężko stwierdzić jaki rozkład ma objętość. Pomimo tego faktu możemy zauważyć, że diamenty dzielą się głównie na $4$ grupy. Pierwszą, najliczniejszą, jest grupa o iloczynie wymiarów należących do przedziału $[45;70] $, następną jest grupa o iloczynie należącym do $[80;100]$. Pozostałymi grupami są iloczyny należące do przedziałów $[110;120]$ oraz $[160;170]$.
 	
 	Zobaczymy teraz jak wyglądają statystyki opisowe dla naszych oczyszczonych danych.
@@ -164,29 +148,13 @@
 	\subsection{Cena}
 	Sprawdziliśmy jak wygląda rozkład objętości to teraz sprawdzimy rozkład ceny diamentów.
 	Box Plot dla ceny diamentów bez usunięcia wartości skrajnych wygląda następująco.
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=4\columnwidth/5]{images/boxplot_price_danych.pdf}
-		\caption{Boxplot ceny dla podstawowych danych.}
-		\label{fig:box_price_orginal}
-	\end{figure}
 	
 	Z box plotu możemy odczytać, że ponownie mamy dużo wartości odstających, które przeszkadzają w analizie danych. Właśnie z tego powodu usuniemy $ 1 \% $ najmniejszych cen oraz  $ 10\%$ największych cen.
 	Po usunięciu wartości nasz Box plot wygląda następująco
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=4\columnwidth/5]{images/boxplot_price_danych_oczyszczonych.pdf}
-		\caption{Box plot ceny dla oczyszczonych danych.}
-		\label{fig:box_price}
-	\end{figure}
+
 	Po usunięciu danych skrajnych wykres pudełkowy staje się czytelniejszy. Z wykresu możemy odczytać, że mediana cen jest w okolicy $2000$, natomiast pierwszy w okolicach $1000$, a trzeci w okolicach $4300$. Możemy sądzić, że rozkład ceny jest prawostronnie skośny.
 	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=4\columnwidth/5]{images/histogram_price.pdf}
-		\caption{Histogram ceny diamentów.}
-		\label{fig:hist_price}
-	\end{figure}
+
  Z histogramu możemy odczytać, że gęstość prawdopodobieństwa ceny jest prawie monotoniczna. Im większa cena tym na ogół, rzadszy diament. Możemy zobaczyć, że mamy najwięcej diamentów tanich nieprzekraczających $2500$ . Możemy także zobaczyć większą liczebność diamentów z ceną w okolicach $4000$. 
  
 		Zobaczymy teraz jak wyglądają statystyki opisowe dla naszych oczyszczonych danych
@@ -206,9 +174,7 @@
 	
 	\section{Analiza zależności między między ceną, a objętością diamentu}
 	Po omówieniu danych oraz ich wstępnym przetworzeniu, możemy przystąpić do analizy. Celem naszym będzie przeanalizować zależność między ceną, a objętością oraz dopasowanie krzywej regresji. Zanim rozpoczniemy analizę, w celu określenia rodzaju zależności, przyjrzyjmy się wykresowi zależności między danymi. %Zanim rozpoczniemy analizę, przyjrzyjmy się ich zależności na wykresie.
-	\begin{figure}[H]\label{fig:v_vs_price}\centering
-		\includegraphics[width=4\columnwidth/5]{images/Budnik/v_vs_price.png}\caption{Wykres zależności ceny od objętość.}
-	\end{figure}
+
 	\noindent Na wykresie możemy zauważyć silną zależność między naszymi danymi. Z powodu rozłożenia naszych danych, zależność ta może być liniowa. W celu określenia tej zależności obliczymy podstawowe statystyki
 	\begin{itemize}
 		\item $SST=\sum_{i=1}^n(y_i-\overline{y})^2\approx1.409e11$,
@@ -262,13 +228,7 @@
      \subsection{Predykcja danych}
      Tak jak wspominaliśmy, $ 20\% $ danych posłuży nam do sprawdzenia modelu. Dla tych danych przyjrzymy się wartością rzeczywistym, estymowanym punktowo oraz przedziałowo.
      
-     
-	\begin{figure}[H]
-	\centering
-	\includegraphics[width=4\columnwidth/5]{images/prediction.png}
-	\caption{Dane testowe.}
-	\label{fig:prediction}
-\end{figure}
+
 Analizując wykres możemy zauważyć, że dane są w oklicach prostej regresyjnej \eqref{eq:model} dla małych obiętości. Wraz ze wzrostem iloczynu wymiarów rośnie też odległość danych od prostej. Do podobnych wniosków możemy dojść analizując przedziały ufności \eqref{eq:ufność} dla naszych danych. Fakt ten może sugerować nam, że objętość nie wpływa liniowo na cenę diamentu lub, że założenia dotyczące modelu nie okazały się poprawne.
 %, w szczególności cena większych diamentów  nie jest liniowa od iloczynu wymiarów diamentu. 
 Na poprawność regresji może wpływać również fakt, że diamenty mają jeszcze inne cechy, których nie bierzemy pod uwagę.
@@ -290,29 +250,12 @@ Na poprawność regresji może wpływać również fakt, że diamenty mają jesz
 		\mathbb{E}\xi_i\approx\overline{e}=1.18e-8,
 	\end{equation}
 	zatem średnia residuów jest równa zeru, co nie jest zaskakujące, uwzględniając, że skorzystaliśmy z metody najmniejszych kwadratów. Przeanalizujmy jeszcze wykres residuów na poniższym wykresie.
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=4\columnwidth/5]{images/Budnik/res_V.png}
-		\caption{Zależność residuów od objętości.}
-	\end{figure}
+	
 	Na wykresie wyraźnie widać, że dla małych objętości wszystkie residua są znacznie większe od zera, więc ich wartość oczekiwana nie może być bliska zeru. Dodatkowo możemy zauważyć, że wraz ze zwiększającą się objętością, zwiększa się wariancja. Zatem pierwsze, jak i drugie założenie, nie jest spełnione. Do sprawdzenia założenia trzeciego o normalności rozkładu sprawdzimy wykorzystując histogram residuów.
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=4\columnwidth/5]{images/Budnik/res_hist.png}
-		\caption{Histogram residuów z nałożoną gęstością rozkładu normalnego.}
-	\end{figure}
+	
 	Na wykresie widzimy, że histogram nie pokrywa się z gęstością teoretyczną. Przed odrzuceniem założenia trzeciego, porównajmy jeszcze dystrybuantę naszych residuów oraz rozkładu normalnego oraz oba rozkłady na qqplocie.
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=4\columnwidth/5]{images/Budnik/not_zal_3.png}
-		\caption{Porównanie rozkładu residuów z rozkładem normalnym.}
-	\end{figure}
+
 	Również na tych wykresach widzimy znaczną różnicę między rozpatrywanymi rozkładami. Możemy więc z pewnością stwierdzić, że rozkład residuów nie jest normalny. Do sprawdzenia pozostaje nam założenie o niezależności błędu. W tym celu sprawdzimy, czy nasze zmienne są skorelowane.
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=4\columnwidth/5]{images/Budnik/corr.png}
-		\caption{Estymator funkcji autokowariancji dla residuów.}
-	\end{figure}
 	Wartości w estymatora autokowariancji nie są zerowe na prawo od początku układu współrzędnych, więc nasze residua są skorelowane. Dlatego możemy wywnioskować, że nasze dane są zależne, zatem czwarte założenie również musimy odrzucić.
 	
 	\section{Wnioski autorów}
