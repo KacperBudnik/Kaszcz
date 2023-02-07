@@ -114,10 +114,29 @@
 	
 	
 	\section{Dekompozycja szeregu czasowego}
+	\subsection{Wykresy dla surowych danych}
 	Dekompozycję zaczniemy od analizy wykresów funkcji autokowariancji oraz częściowej autokowariancji. Prezentują się one następująco
-	\begin{figure}[H]
+	\begin{figure}[H]\label{fig:dry_cov}
 		\includegraphics[width=\columnwidth]{Budnik/img/auto_dry.png}
+		\caption{Funkcjie empircznej autokowariancji i częściowej autokowariancji.}
 	\end{figure}
+	Na powyższym wykresie widać okresowe zachowanie funkcji autokowariancji z okresem około 365. Liczba ta pokrywa się z liczbą dni w roku, co wydaje się intuicyjne. Z powodu na globalne ocieplenie możemy podejrzewać, że będzie istniał dodatni trend. Rzeczywiście, korzystając z funkcji \verb*|polyfit|, otrzymaliśmy trend
+	\begin{equation}
+		m(h)=24.8564+9\cdot10^{-5}h,
+	\end{equation}  
+	gdzie $m$ oznacza zmianę średniej temperatury w ciągu dnia. Zatem w ciągu 10 lat średnia temperatura w Delhi, według naszych obliczeń, wzrosła w przybliżeniu o $m(10\cdot365)-m(0)\approx0.3287^\circ$C. Według danych w tym samym okresie średnia temperatura na ziemi wzrosła, w zależności od regionu i źródeł, o więcej niż $0.2^\circ$C, zatem nasze wyniki częściowo pokrywają się z obserwowanymi zdarzeniami.
+	\subsection{Transformacja Boxa-Coxa}
+	Przed przystąpieniem do dekompozycji zastosowaliśmy transformację Boxa-Coxa. Transformacja ma ta na celu zminimalizowanie wariancji i przybliżenie rozkładu do rozkładku normalnego. Przy pomocy metod numerycznych oszacowaliśmy, że najmniejsza wariancja będzie dla transformacji z parametrem $\lambda\approx1.4591$, zatem analizować dane w postaci $y_n=x_n^\lambda$. Na poniższym histogramie widnieją dane przed transformacją (niebieski) oraz po transformacji (pomarańczowy).
+	\begin{figure}[H]
+		\includegraphics[width=\columnwidth]{Budnik/img/BoxCox.png}
+		\caption{Dane przed i po transformacji. Dolna oś wskazuje na dane oryginalne, na górze widnieje oś dla danych po transformacji.}
+	\end{figure}
+	\subsection{Różnicowanie sezonowe}
+	Tak jak już wspomnieliśmy, przy analizie wykresu \autoref{fig:dry_cov}, nasze dane wykazują okresowość z okresem 365 dni. By pozbyć się tych sezonowości zastosowaliśm różnicowanie sezonowe, czyli analizowaliśmy dalej dane w postaci
+	\begin{equation}
+		W_t=Y_t-Y_{t-360}.
+	\end{equation}
+	
 	
 	\section{Jednowymiarowa analiza}
 	\subsection{Objętość}
