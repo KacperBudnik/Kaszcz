@@ -47,7 +47,7 @@
 %\usepackage[a4paper,total={6in,10in}]{geometry}
 \usepackage[a4paper,total={7in,10in}]{geometry}
 %\newtheoremstyle{style name}{space above}{space below}{body font}{indent amount}{head font}{head punct}{after head space}{head spec}
-
+\usepackage{color}
 
 \begin{document}
 	\begin{titlepage}
@@ -125,7 +125,7 @@
 %		\caption{Dane przed i po transformacji. Dolna oś wskazuje na dane oryginalne, na górze widnieje oś dla danych po transformacji.}
 %	\end{figure}
 	\subsection{Różnicowanie sezonowe}
-	Tak jak już wspomnieliśmy, przy analizie wykresu \autoref{fig:dry_cov}, nasze dane wykazują okresowość z okresem ok. 365 dni. By pozbyć się tych sezonowości zastosowaliśm różnicowanie sezonowe, czyli analizowaliśmy dalej dane w postaci
+	Tak jak już wspomnieliśmy, przy analizie wykresu \ref{fig:dry_cov}, nasze dane wykazują okresowość z okresem ok. 365 dni. By pozbyć się tych sezonowości zastosowaliśm różnicowanie sezonowe, czyli analizowaliśmy dalej dane w postaci
 	\begin{equation}
 		W_t=Y_t-Y_{t-a}.
 	\end{equation}
@@ -146,7 +146,7 @@
 	\begin{equation}
 		AIC=-2l(x;\phi;\theta,\sigma^2)+2(p+q+1),
 	\end{equation}
-	gdzie $l$ jest funkcjią wiarygodności. Zatem dla różnych wartości $p$ oraz $q$ otzrymamy różne wyniki. Wybieramy wtedy ten z najmniejszą wartością. W symulacji sprawdziliśmy krytorium BIC dla wartości $p$, $q$ od 0 do 10. Poniżej przedstawiliśmy jedynie część tabeli zawierającą wartość najmniejszą.
+	gdzie $l$ jest funkcjią wiarygodności. Zatem dla różnych wartości $p$ oraz $q$ otzrymamy różne wyniki. Wybieramy wtedy ten z najmniejszą wartością. W symulacji sprawdziliśmy krytorium AIC dla wartości $p$, $q$ od 0 do 10. Poniżej przedstawiliśmy jedynie część tabeli zawierającą wartość najmniejszą.
 	\begin{table}[H]
 		\centering
 		\begin{tabularx}{4\textwidth/5}{|Y|Y|Y|Y|Y|Y|}
@@ -222,7 +222,7 @@ Jak możemy zobaczyć test t \ref{t_test} nie miał podstaw do odrzucenia hipote
 Tak więc możemy przyjąć, że średnia jest stała i równa $0$
 
 \subsection{Stała wariancja}
-Z wykresu \ref{fig:residua} możemy odczytać, że wariancja jest stała.Dodatkowo możemy obliczyć ,że  należy ona do przedziału $[4.141 ; 4.554]$ na poziomie ufności $\alpha = 5\%$
+Z wykresu \ref{fig:residua} możemy odczytać, że wariancja jest stała. Dodatkowo możemy obliczyć ,że  należy ona do przedziału $[4.141 ; 4.554]$ na poziomie ufności $\alpha = 5\%$
 
 \subsection{Niezależność szumu}
 Sprawdzimy teraz założenie dotyczące niezależności szumu w czasie. Sprawdzimy na początek wykres autokowariancji i częściowej autokowariancji. 
