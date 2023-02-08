@@ -4,5 +4,10 @@
 \contentsline {subsection}{\numberline {3.1}Wykresy dla surowych danych}{2}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Transformacja Boxa-Coxa}{2}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Różnicowanie sezonowe}{2}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Analiza residuów}{2}{section.4}%
-\contentsline {section}{\numberline {5}Wnioski autorów}{2}{section.5}%
+\contentsline {section}{\numberline {4}Ocena dopasowania modelu}{2}{section.4}%
+\contentsline {section}{\numberline {5}Analiza szumu}{3}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Stała średnia równa 0}{3}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Stała wariancja}{5}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Niezależność szumu}{5}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Założenie o normalności rozkładu}{6}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Wnioski autorów}{7}{section.6}%
