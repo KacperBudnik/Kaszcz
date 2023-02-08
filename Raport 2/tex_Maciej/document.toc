@@ -1,13 +1,16 @@
 \contentsline {section}{\numberline {1}Wprowadzenie}{2}{section.1}%
 \contentsline {section}{\numberline {2}Przygotowanie danych do analizy}{2}{section.2}%
-\contentsline {section}{\numberline {3}Dekompozycja szeregu czasowego}{2}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Wykresy dla surowych danych}{2}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Transformacja Boxa-Coxa}{2}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Różnicowanie sezonowe}{2}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Ocena dopasowania modelu}{2}{section.4}%
-\contentsline {section}{\numberline {5}Analiza szumu}{3}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Stała średnia równa 0}{3}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Stała wariancja}{5}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Niezależność szumu}{5}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Założenie o normalności rozkładu}{6}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Wnioski autorów}{7}{section.6}%
+\contentsline {subsection}{\numberline {2.1}Sprawdzenie stacjonarności}{2}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Dekompozycja szeregu czasowego}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Wykresy dla surowych danych}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Różnicowanie sezonowe}{3}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Dobranie modelu ARMA}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Rząd modelu}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Estymacja paremetrów modelu}{5}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Ocena dopasowania modelu}{5}{section.5}%
+\contentsline {section}{\numberline {6}Analiza szumu}{6}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Stała średnia równa 0}{6}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Stała wariancja}{8}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Niezależność szumu}{8}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Założenie o normalności rozkładu}{9}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Wnioski autorów}{10}{section.7}%

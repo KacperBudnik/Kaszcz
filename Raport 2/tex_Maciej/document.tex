@@ -162,7 +162,7 @@
 Więc naszym modelem będzie model $ARMA(2,2)$.
 	\subsection{Estymacja paremetrów modelu}
 	Przy znanych parametrach $p$ i $q$ możemy zacząć estymować współczynniki modelu. Do estymacji korzystaliśmy z metody największej wiarygodności. Skorzystaliśmy z numerycznego przybliżenia przy pomocy funkcji \verb*|ARIMA.fit()| z pakietu \verb*|statsmodels.tsa.arima.model| w języku \verb*|Python|. W wyniku dostaliśmy model
-	\begin{equation}
+	\begin{equation}\label{model}
 		Y_t-1.6118\,Y_{t-1}+0.6232\,Y_{t-2}=Z_t-0.8640\,Z_{t-1}-0.0688\,Z_{t-2},
 	\end{equation}
      gdzie $Z_t$ jest białym szumem o wariancji $\sigma^2=4.3478$.
@@ -170,35 +170,36 @@ Więc naszym modelem będzie model $ARMA(2,2)$.
 	
 	
 	\section{Ocena dopasowania modelu}
-	W celu oceny dopasowania modelu do danych zobaczymy jak wyglądają przedziały ufności na poziomie $\alpha = 5\%$ dla ACF i PACF 
+	W celu oceny dopasowania modelu do danych zobaczymy jak wyglądają przedziały ufności,wyznaczone za pomocą Monte Carlo, na poziomie $\alpha = 5\%$ dla ACF i PACF 
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=3\columnwidth/4]{img/acf_pacf.png}
 		\caption{Przedziały ufności dla ACF i PACF dla naszego modelu}
 		\label{fig:model_acf_pacf}
 	\end{figure}
-	Jak możemy zobaczyć na wykresie \ref{fig:model_acf_pacf} istnieje tylko krótko okresowa zależność pomiędzy danymi w modelu.
+	Jak możemy zobaczyć na wykresie \ref{fig:model_acf_pacf} istnieje tylko krótko okresowa zależność pomiędzy danymi w modelu. Ta zależność pokrywa się z naszymi oczekiwaniami, ponieważ używamy modelu ARMA(2,2) o parametrach \ref{model} gwarantujących racjonalność. 
 	
 	
-	Następnie porównamy trajektorię z liniami kwantylowymi dla naszego modelu
+	Następnie porównamy trajektorię z liniami kwantylowymi dla naszego modelu.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=3\columnwidth/4]{img/linie_kwantylowe.png}
 		\caption{Porównanie orginalnych danych z liniami kwantylowymi modelu}
 		\label{fig:linie_kwantylowe}
 	\end{figure}
-Analizując linie kwantylowe naszego modelu pokazane na wykresie \ref{fig:linie_kwantylowe} możemy zauważyć, że model w miarę dobrze się sprawdza dla naszych danych. 
+Analizując linie kwantylowe naszego modelu,wyznaczone również  za pomocą symulacji Monte Carlo, pokazane na wykresie \ref{fig:linie_kwantylowe} możemy zauważyć, że model w miarę dobrze się sprawdza dla naszych danych. $80\%$ danych leży pomiędzy linią kwantylową rzędu $0.9$ i $0.1$. Natomiast $89\%$  danych leży pomiędzy linią kwantylową rzędu $0.95$ i $0.05$
 
 
-Patrząc na wykres zależności w modelu \ref{fig:model_acf_pacf} oraz na wykres z liniamy kwantylowymi \ref{fig:linie_kwantylowe} dochodzimy do wniosku, że model dobrze się sprawdza dla naszych danych.
+Patrząc na wykres zależności w modelu \ref{fig:model_acf_pacf} oraz na wykres z liniami kwantylowymi \ref{fig:linie_kwantylowe} dochodzimy do wniosku, że model dobrze się sprawdza dla naszych danych.
 
 
 	\section{Analiza szumu}
-	Podczas tworzenia modelu ARMA zakładaliśmy następujące warunki odnośnie szumu
+	Podczas tworzenia modelu ARMA i późniejszej analizy zakładaliśmy następujące warunki odnośnie szumu
 	\begin{enumerate}
 		\item $\mathbb{E}\xi_i=0$ $\forall i$ ,
 		\item $Var\xi_i=\sigma^2<\infty\quad\forall i$,
 		\item $\xi_i\perp\!\!\!\perp\xi_j$ dla $i\neq j$,
+		\item $\xi_i$ mają rozkład normalny,
 	\end{enumerate}
 	
 	\subsection{Stała średnia równa 0}
@@ -210,7 +211,7 @@ Patrząc na wykres zależności w modelu \ref{fig:model_acf_pacf} oraz na wykres
 	\caption{Residua naszego modelu}
 	\label{fig:residua}
 \end{figure}
- Jak możemy zobaczyć na wykresie \ref{fig:residua} średnia jest stała w czasie i wynosi w przybliżeniu $0$. 
+ Jak możemy zobaczyć na wykresie \ref{fig:residua} średnia jest stała w czasie i wynosi w przybliżeniu $0$  a dokładnie $ 7.9 \cdot 10^{-4}$. 
  W celu upewnienia się wykonamy też t test dla jednej zmiennej.
  	\begin{figure}[H]
  	\centering
@@ -218,11 +219,11 @@ Patrząc na wykres zależności w modelu \ref{fig:model_acf_pacf} oraz na wykres
  	\caption{Test t dla naszych wartości resztowych}
  	\label{t_test}
  \end{figure}
-Jak możemy zobaczyć test t \ref{t_test} nie miał podstaw do odrzucenia hipotezy zerowej, która mówiła ,że średnia wynosi $0$. Test zwrócił $p$-value równe $0.9847$.
-Tak więc możemy przyjąć, że średnia jest stała i równa $0$
+Jak możemy zobaczyć test t \ref{t_test} nie miał podstaw do odrzucenia hipotezy zerowej, która mówiła ,że średnia wynosi $0$. Test zwrócił $p$-value równe $0.9847$ co jest bardzo dużą wartością.
+Tak więc z pewnością możemy przyjąć, że średnia jest stała i równa $0$
 
 \subsection{Stała wariancja}
-Z wykresu \ref{fig:residua} możemy odczytać, że wariancja jest stała. Dodatkowo możemy obliczyć ,że  należy ona do przedziału $[4.141 ; 4.554]$ na poziomie ufności $\alpha = 5\%$
+Z wykresu \ref{fig:residua} możemy odczytać,także że wariancja jest stała. Dodatkowo możemy obliczyć ,że  należy ona do przedziału $[4.141 ; 4.554]$ na poziomie ufności $\alpha = 5\%$
 
 \subsection{Niezależność szumu}
 Sprawdzimy teraz założenie dotyczące niezależności szumu w czasie. Sprawdzimy na początek wykres autokowariancji i częściowej autokowariancji. 
@@ -232,9 +233,9 @@ Sprawdzimy teraz założenie dotyczące niezależności szumu w czasie. Sprawdzi
 	\caption{ACF i PACF dla wartości resztkowych modelu}
 	\label{fig:residua_acf_pacf}
 \end{figure}
-Na wykresie \ref{fig:residua_acf_pacf} możemy  zobaczyć że mamy szum jest zależny tylko od siebie w tym samym momencie.
+Na wykresie \ref{fig:residua_acf_pacf} możemy  zobaczyć, że mamy szum jest zależny tylko od siebie w tym samym momencie, ponieważ tylko dla $h=0$ ACF oraz PACF przyjmują wartość niebędącą w otoczeniu zera.
 
-Dodatkowo wykonamy test Ljunga-Boxa by upewnić się że szum jest niezależny od siebie.
+Dodatkowo wykonamy test Ljunga-Boxa by upewnić się, że szum jest niezależny od siebie. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=3\columnwidth/4]{img/Ljung-Box.png}
@@ -242,10 +243,12 @@ Dodatkowo wykonamy test Ljunga-Boxa by upewnić się że szum jest niezależny o
 	\label{Test Ljunga Boxa}
 \end{figure}
 
-Test nam potwierdza, że nie mamy podstaw do odrzucenia hipotezy mówiącej, że szum jest niezależny od siebie.
+Test nam potwierdza, że nie mamy podstaw do odrzucenia hipotezy mówiącej, że szum jest niezależny od siebie. Otrzymaliśmy $p$-value równe $0.9847$ co jest bardzo dużą wartością.
+
+Łącząc wykres \ref{fig:model_acf_pacf} oraz test Ljunga Boxa stwierdzamy, że szum jest niezależny.
 
 \subsection{Założenie o normalności rozkładu}
-Sprawdzimy teraz dodatkowe założenie mówiące o tym że szum ma rozkład normalny.
+Sprawdzimy teraz założenie mówiące o tym, że szum ma rozkład normalny.
 Na początku sprawdzimy histogram wraz z gęstością empiryczną i teoretyczną rozkładu normalnego.
 \begin{figure}[H]
 	\centering
@@ -274,6 +277,6 @@ Test Andersona Darlinga \ref{Test_AD} odrzuca hipotezę o normalności rozkładu
 
 Podsumowując rozkład szumu nie ma rozkładu normalnego.
 	\section{Wnioski autorów}
-	
+	Pogodę w Indiach po odpowiednich przekształceniach można modelować modelem ARMA. W naszym przypadku udało się za modelować modelem o wartościach $p,q = 2$ \ref{model}. Parametry modelu mówią nam, że jest on stacjonarny i przyczynowy co pokrywa się z dalszymi testami. Model spełnia założenia, lecz biały szum nie ma rozkładu normalnego. Dużym atutem modelu jest fakt, że wykorzystuje on tylko dwie średnie temperatury z dwóch ostatnich dni. Warto pamiętać, że nadal jest to proces losowy więc nigdy temperatura nie będzie dokładnie się zgadzać z modelem. 
 	
 \end{document}

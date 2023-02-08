@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.6.2)  8 FEB 2023 18:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.6.2)  8 FEB 2023 22:38
 entering extended mode
 **./document.tex
 (document.tex
@@ -483,9 +483,17 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@dimlist=\toks37
 
 (C:\Users\mkarc\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\mkarc\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+Package: color 2020/02/24 v1.2b Standard LaTeX Color (DPC)
+
+(C:\Users\mkarc\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+)
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 52
 .
-(C:\Users\mkarc\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1ptm.fd
+ (C:\Users\mkarc\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 (C:\Users\mkarc\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
@@ -604,35 +612,35 @@ Package caption Info: End \AtBeginDocument code.
 [1
 
 {C:/Users/mkarc/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] (document.toc
-LaTeX Font Info:    Trying to load font information for OML+plm on input line 4
+LaTeX Font Info:    Trying to load font information for OML+plm on input line 3
 .
 (C:\Users\mkarc\AppData\Local\Programs\MiKTeX\tex/latex/polski\omlplm.fd
 File: omlplm.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    Trying to load font information for OMS+plsy on input line 
-4.
+3.
 
 (C:\Users\mkarc\AppData\Local\Programs\MiKTeX\tex/latex/polski\omsplsy.fd
 File: omsplsy.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    Trying to load font information for OMX+plex on input line 
-4.
+3.
 
 (C:\Users\mkarc\AppData\Local\Programs\MiKTeX\tex/latex/polski\omxplex.fd
 File: omxplex.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <12> on input line 4.
+(Font)              <12> on input line 3.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <8> on input line 4.
+(Font)              <8> on input line 3.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <6> on input line 4.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
+(Font)              <6> on input line 3.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
 
 (C:\Users\mkarc\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
 
 (C:\Users\mkarc\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -646,72 +654,101 @@ been already used, duplicate ignored
                    \relax 
 l.80 	\newpage
                [1]
-<img/acf_pacf.png, id=79, 3011.25pt x 2007.5pt>
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 97
+.
+
+(C:\Users\mkarc\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+Overfull \hbox (16.88565pt too wide) in paragraph at lines 105--106
+\T1/ptm/m/n/12 gmen-ted Dickey-Fuller Test). W tym ce-lu sko-rzy-sta-li-±my z f
+unk-cji [][]\T1/pcr/m/n/12 ADFTest []\T1/ptm/m/n/12 z pa-kie-tu [][]\T1/pcr/m/n
+/12 HypothesisTests
+ []
+
+<Budnik/img/auto_dry.png, id=95, 5018.75pt x 2007.5pt>
+File: Budnik/img/auto_dry.png Graphic file (type png)
+<use Budnik/img/auto_dry.png>
+Package pdftex.def Info: Budnik/img/auto_dry.png  used on input line 113.
+(pdftex.def)             Requested size: 505.89pt x 202.35461pt.
+[2]
+<Budnik/img/auto_wet.png, id=108, 5018.75pt x 2007.5pt>
+File: Budnik/img/auto_wet.png Graphic file (type png)
+<use Budnik/img/auto_wet.png>
+Package pdftex.def Info: Budnik/img/auto_wet.png  used on input line 134.
+(pdftex.def)             Requested size: 505.89pt x 202.35461pt.
+ [3 <./Budnik/img/auto_dry.png>]
+<Budnik/img/wet.png, id=115, 3011.25pt x 2007.5pt>
+File: Budnik/img/wet.png Graphic file (type png)
+<use Budnik/img/wet.png>
+Package pdftex.def Info: Budnik/img/wet.png  used on input line 139.
+(pdftex.def)             Requested size: 505.89pt x 337.2577pt.
+ [4 <./Budnik/img/auto_wet.png> <./Budnik/img/wet.png>]
+<img/acf_pacf.png, id=122, 5018.75pt x 2007.5pt>
 File: img/acf_pacf.png Graphic file (type png)
 <use img/acf_pacf.png>
-Package pdftex.def Info: img/acf_pacf.png  used on input line 100.
-(pdftex.def)             Requested size: 379.4175pt x 252.92796pt.
-<img/linie_kwantylowe.png, id=81, 602.25pt x 401.5pt>
+Package pdftex.def Info: img/acf_pacf.png  used on input line 176.
+(pdftex.def)             Requested size: 379.4175pt x 151.75064pt.
+ [5 <./img/acf_pacf.png>]
+<img/linie_kwantylowe.png, id=131, 602.25pt x 401.5pt>
 File: img/linie_kwantylowe.png Graphic file (type png)
 <use img/linie_kwantylowe.png>
-Package pdftex.def Info: img/linie_kwantylowe.png  used on input line 110.
+Package pdftex.def Info: img/linie_kwantylowe.png  used on input line 186.
 (pdftex.def)             Requested size: 379.4175pt x 252.95245pt.
- [2 <./img/acf_pacf.png>]
-<img/residua.png, id=92, 602.25pt x 401.5pt>
+<img/residua.png, id=135, 602.25pt x 401.5pt>
 File: img/residua.png Graphic file (type png)
 <use img/residua.png>
-Package pdftex.def Info: img/residua.png  used on input line 133.
+Package pdftex.def Info: img/residua.png  used on input line 210.
 (pdftex.def)             Requested size: 379.4175pt x 252.95245pt.
- [3 <./img/linie_kwantylowe.png>]
-<img/t_test.png, id=106, 360.59718pt x 258.9675pt>
+ [6 <./img/linie_kwantylowe.png>]
+<img/t_test.png, id=148, 360.59718pt x 258.9675pt>
 File: img/t_test.png Graphic file (type png)
 <use img/t_test.png>
-Package pdftex.def Info: img/t_test.png  used on input line 141.
+Package pdftex.def Info: img/t_test.png  used on input line 218.
 (pdftex.def)             Requested size: 379.4175pt x 272.48499pt.
-
-[4 <./img/residua.png> <./img/t_test.png>]
-<img/acf_pacf_residua.png, id=115, 3011.25pt x 2007.5pt>
+ [7 <./img/residua.png> <./img/t_test.png>]
+<img/acf_pacf_residua.png, id=157, 5018.75pt x 2007.5pt>
 File: img/acf_pacf_residua.png Graphic file (type png)
 <use img/acf_pacf_residua.png>
-Package pdftex.def Info: img/acf_pacf_residua.png  used on input line 155.
-(pdftex.def)             Requested size: 379.4175pt x 252.92796pt.
-<img/Ljung-Box.png, id=117, 399.74344pt x 237.88875pt>
+Package pdftex.def Info: img/acf_pacf_residua.png  used on input line 232.
+(pdftex.def)             Requested size: 379.4175pt x 151.75064pt.
+<img/Ljung-Box.png, id=159, 399.74344pt x 237.88875pt>
 File: img/Ljung-Box.png Graphic file (type png)
 <use img/Ljung-Box.png>
-Package pdftex.def Info: img/Ljung-Box.png  used on input line 164.
+Package pdftex.def Info: img/Ljung-Box.png  used on input line 241.
 (pdftex.def)             Requested size: 379.4175pt x 225.80426pt.
- [5 <./img/acf_pacf_residua.png> <./img/Ljung-Box.png>]
-<img/density.png, id=124, 602.25pt x 401.5pt>
+<img/density.png, id=161, 602.25pt x 401.5pt>
 File: img/density.png Graphic file (type png)
 <use img/density.png>
-Package pdftex.def Info: img/density.png  used on input line 176.
+Package pdftex.def Info: img/density.png  used on input line 255.
 (pdftex.def)             Requested size: 379.4175pt x 252.95245pt.
-<img/qqplot.png, id=126, 602.25pt x 401.5pt>
+ [8 <./img/acf_pacf_residua.png> <./img/Ljung-Box.png>]
+<img/qqplot.png, id=169, 602.25pt x 401.5pt>
 File: img/qqplot.png Graphic file (type png)
 <use img/qqplot.png>
-Package pdftex.def Info: img/qqplot.png  used on input line 185.
+Package pdftex.def Info: img/qqplot.png  used on input line 264.
 (pdftex.def)             Requested size: 379.4175pt x 252.95245pt.
- [6 <./img/density.png>]
-<img/ad_test.png, id=134, 376.40625pt x 241.65282pt>
+<img/ad_test.png, id=171, 376.40625pt x 241.65282pt>
 File: img/ad_test.png Graphic file (type png)
 <use img/ad_test.png>
-Package pdftex.def Info: img/ad_test.png  used on input line 193.
+Package pdftex.def Info: img/ad_test.png  used on input line 272.
 (pdftex.def)             Requested size: 379.4175pt x 243.60281pt.
- [7 <./img/qqplot.png> <./img/ad_test.png>] (document.aux)
+ [9 <./img/density.png> <./img/qqplot.png>] [10 <./img/ad_test.png>]
+(document.aux)
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 6897E96BBE1AC622BE07E4EDD8C192B8;2179.
+(rerunfilecheck)             Checksum: C2AF8F0D2C4B8E2E8511E1869781664D;2668.
  ) 
 Here is how much of TeX's memory you used:
- 12398 strings out of 479081
- 191891 string characters out of 2852598
- 495875 words of memory out of 3000000
- 29838 multiletter control sequences out of 15000+600000
- 434691 words of font info for 72 fonts, out of 8000000 for 9000
+ 12524 strings out of 479081
+ 194046 string characters out of 2852598
+ 510240 words of memory out of 3000000
+ 29939 multiletter control sequences out of 15000+600000
+ 435312 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,7n,77p,289b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
-{C:/Users/mkarc/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plrm.enc}{C:
+ 67i,12n,77p,705b,355s stack positions out of 5000i,500n,10000p,200000b,80000s
+{C:/Users/mkarc/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plmi.enc}{C:
 /Users/mkarc/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plms.enc}{C:/User
-s/mkarc/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plmi.enc}{C:/Users/mka
+s/mkarc/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plrm.enc}{C:/Users/mka
 rc/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/mkarc/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/
 Users/mkarc/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plmi12.pfb><C:/
@@ -719,11 +756,13 @@ Users/mkarc/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plmi8.pfb><C:/U
 sers/mkarc/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plr12.pfb><C:/Us
 ers/mkarc/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plr8.pfb><C:/User
 s/mkarc/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plsy10.pfb><C:/User
-s/mkarc/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/User
-s/mkarc/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
-Output written on document.pdf (8 pages, 863665 bytes).
+s/mkarc/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plsy8.pfb><C:/Users
+/mkarc/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Use
+rs/mkarc/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Use
+rs/mkarc/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
+Output written on document.pdf (11 pages, 1532442 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
- 34 named destinations out of 1000 (max. 500000)
- 150 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 234 PDF objects out of 1000 (max. 8388607)
+ 46 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
 
