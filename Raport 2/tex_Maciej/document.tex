@@ -1,0 +1,110 @@
+\documentclass[12pt]{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}
+
+
+\usepackage{tabularx}
+\usepackage{array}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newcolumntype{Z}{>{\centering\arraybackslash}p}
+\usepackage{multirow}
+\usepackage{hyperref}
+
+\usepackage{enumitem}
+\usepackage{float}
+
+
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{subcaption}
+
+
+%\usepackage{animate}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\usepackage{wrapfig}
+
+
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{dsfont}
+\newtheorem{lema}{Lemma}
+
+\newtheoremstyle{exer}{20pt}{10pt}{}{0pt}{\bfseries}{.\\}{.5em}{}
+\theoremstyle{exer}
+\newtheorem{ex}{Ex}
+
+%\usepackage[a4paper,total={6in,10in}]{geometry}
+\usepackage[a4paper,total={7in,10in}]{geometry}
+%\newtheoremstyle{style name}{space above}{space below}{body font}{indent amount}{head font}{head punct}{after head space}{head spec}
+
+
+\begin{document}
+	\begin{titlepage}
+		\begin{center}
+			
+			\textbf{\Huge  Analiza danych rzeczywistych przy pomocy modelu ARMA}
+			
+			\vspace{0.5cm}
+			
+			\vspace{1.5cm}
+			
+			\textbf{\LARGE Autorzy}\\
+			\vspace{0.5cm}
+			\large Kacper Budnik, 262286\\
+			\large Maciej Karczewski, 262282\\
+			
+			
+			\vfill
+			
+			\vspace{0.4cm}
+			
+
+			
+			\vspace{0.8cm}
+			Wydział Matematyki	
+			\today
+		\end{center}
+	\end{titlepage}
+	\tableofcontents
+	\newpage
+	
+	\section{Wprowadzenie}
+	
+	\section{Przygotowanie danych do analizy}
+	
+	
+	\section{Dekompozycja szeregu czasowego}
+	\subsection{Wykresy dla surowych danych}
+	
+	\subsection{Transformacja Boxa-Coxa}
+
+	\subsection{Różnicowanie sezonowe}
+	
+	
+	
+
+	
+	\section{Analiza residuów}
+	Podczas tworzenia modelu regresji liniowej oraz dalszych obliczeń zakładaliśmy następujące warunki
+	\begin{enumerate}
+		\item $\mathbb{E}\xi_i=0$ $\forall i$ ,
+		\item $Var\xi_i=\sigma^2<\infty\quad\forall i$,
+		\item $\xi_i$ mają rozkład normalny,
+		\item $\xi_i\perp\!\!\!\perp\xi_j$ dla $i\neq j$.
+	\end{enumerate}
+
+	\section{Wnioski autorów}
+	
+	
+\end{document}
