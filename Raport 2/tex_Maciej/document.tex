@@ -101,7 +101,7 @@
 		\caption{Przedziały ufności dla ACF i PACF dla naszego modelu}
 		\label{fig:model_acf_pacf}
 	\end{figure}
-	Jak możemy zobaczyć na wykresie \ref{fig:model_acf_pacf} istnieje tylko okresowa zależność pomiędzy danymi w modelu.
+	Jak możemy zobaczyć na wykresie \ref{fig:model_acf_pacf} istnieje tylko krótko okresowa zależność pomiędzy danymi w modelu.
 	
 	
 	Następnie porównamy trajektorię z liniami kwantylowymi dla naszego modelu
@@ -111,7 +111,7 @@
 		\caption{Porównanie orginalnych danych z liniami kwantylowymi modelu}
 		\label{fig:linie_kwantylowe}
 	\end{figure}
-Analizując linie kwantylowe naszego modelu  pokazane na wykresie \ref{fig:linie_kwantylowe} możemy zauważyć, że model w miarę dobrze się sprawdza dla naszych danych. 
+Analizując linie kwantylowe naszego modelu pokazane na wykresie \ref{fig:linie_kwantylowe} możemy zauważyć, że model w miarę dobrze się sprawdza dla naszych danych. 
 
 
 Patrząc na wykres zależności w modelu \ref{fig:model_acf_pacf} oraz na wykres z liniamy kwantylowymi \ref{fig:linie_kwantylowe} dochodzimy do wniosku, że model dobrze się sprawdza dla naszych danych.
@@ -126,7 +126,7 @@ Patrząc na wykres zależności w modelu \ref{fig:model_acf_pacf} oraz na wykres
 	\end{enumerate}
 	
 	\subsection{Stała średnia równa 0}
-	Sprawdzimy czy rezidua naszego modelu mają stałą średnią równą $0$. W tym celu zobaczymy jak wyglądają nasze wartości resztowe.
+	Sprawdzimy, czy residua naszego modelu mają stałą średnią równą $0$. W tym celu zobaczymy jak wyglądają nasze wartości resztowe.
 	
 	\begin{figure}[H]
 	\centering
@@ -134,7 +134,7 @@ Patrząc na wykres zależności w modelu \ref{fig:model_acf_pacf} oraz na wykres
 	\caption{Residua naszego modelu}
 	\label{fig:residua}
 \end{figure}
- Jak możemy zobaczyć na \ref{fig:residua} średnia jest stała w czasie i wynosi w przybliżeniu $0$. 
+ Jak możemy zobaczyć na wykresie \ref{fig:residua} średnia jest stała w czasie i wynosi w przybliżeniu $0$. 
  W celu upewnienia się wykonamy też t test dla jednej zmiennej.
  	\begin{figure}[H]
  	\centering
@@ -187,7 +187,7 @@ Patrząc na histogram wraz z gęstościami \ref{fig:density} możemy załuważy�
 	\label{fig:qqplot}
 \end{figure}
 
-Analizując wykres kwantylowy \ref{fig:qqplot} widzimy, że potencjalnie ogony rozkładu niezf=gadzają się z rozkładem normalnym. W celu ostatecznej weryfikacji normalności wykonamy test Andersona Darlinga. 
+Analizując wykres kwantylowy \ref{fig:qqplot} widzimy, że potencjalnie ogony rozkładu nie zgadzają się z rozkładem normalnym. W celu ostatecznej weryfikacji normalności wykonamy test Andersona Darlinga. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=3\columnwidth/4]{img/ad_test.png}
