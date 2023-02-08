@@ -130,9 +130,9 @@
 	
 	\section{Dobranie modelu ARMA}
 	\subsection{Rząd modelu}
-	W celu znalezienia rzędu medelu skorzystaliśmy z kryteriów BIC. Jest to metoda największej wiargodności z karą dla danego $p$ i $q$ w postaci
+	W celu znalezienia rzędu medelu skorzystaliśmy z kryterium iinformacyjnego Akkaike. Jest to metoda największej wiargodności z karą dla danego $p$ i $q$ w postaci
 	\begin{equation}
-		BIC=-2l(x;\phi;\theta,\sigma^2)+(p+q+1)\ln n,
+		AIC=-2l(x;\phi;\theta,\sigma^2)+2(p+q+1),
 	\end{equation}
 	gdzie $l$ jest funkcjią wiarygodności. Zatem dla różnych wartości $p$ oraz $q$ otzrymamy różne wyniki. Wybieramy wtedy ten z najmniejszą wartością. W symulacji sprawdziliśmy krytorium BIC dla wartości $p$, $q$ od 0 do 10. Poniżej przedstawiliśmy jedynie część tabeli zawierającą wartość najmniejszą.
 	\begin{table}[H]
