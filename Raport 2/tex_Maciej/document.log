@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.6.2)  8 FEB 2023 22:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.6.2)  9 FEB 2023 10:36
 entering extended mode
 **./document.tex
 (document.tex
@@ -609,11 +609,18 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+<img/logo.PNG, id=67, 271.0125pt x 388.45125pt>
+File: img/logo.PNG Graphic file (type png)
+<use img/logo.PNG>
+Package pdftex.def Info: img/logo.PNG  used on input line 71.
+(pdftex.def)             Requested size: 303.53708pt x 435.08612pt.
 [1
 
-{C:/Users/mkarc/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] (document.toc
+{C:/Users/mkarc/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./img/logo.PNG>
+] (document.toc
 LaTeX Font Info:    Trying to load font information for OML+plm on input line 3
 .
+
 (C:\Users\mkarc\AppData\Local\Programs\MiKTeX\tex/latex/polski\omlplm.fd
 File: omlplm.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
@@ -666,69 +673,69 @@ unk-cji [][]\T1/pcr/m/n/12 ADFTest []\T1/ptm/m/n/12 z pa-kie-tu [][]\T1/pcr/m/n
 /12 HypothesisTests
  []
 
-<Budnik/img/auto_dry.png, id=95, 5018.75pt x 2007.5pt>
+<Budnik/img/auto_dry.png, id=98, 5018.75pt x 2007.5pt>
 File: Budnik/img/auto_dry.png Graphic file (type png)
 <use Budnik/img/auto_dry.png>
 Package pdftex.def Info: Budnik/img/auto_dry.png  used on input line 113.
 (pdftex.def)             Requested size: 505.89pt x 202.35461pt.
 [2]
-<Budnik/img/auto_wet.png, id=108, 5018.75pt x 2007.5pt>
+<Budnik/img/auto_wet.png, id=111, 5018.75pt x 2007.5pt>
 File: Budnik/img/auto_wet.png Graphic file (type png)
 <use Budnik/img/auto_wet.png>
 Package pdftex.def Info: Budnik/img/auto_wet.png  used on input line 134.
 (pdftex.def)             Requested size: 505.89pt x 202.35461pt.
  [3 <./Budnik/img/auto_dry.png>]
-<Budnik/img/wet.png, id=115, 3011.25pt x 2007.5pt>
+<Budnik/img/wet.png, id=118, 3011.25pt x 2007.5pt>
 File: Budnik/img/wet.png Graphic file (type png)
 <use Budnik/img/wet.png>
 Package pdftex.def Info: Budnik/img/wet.png  used on input line 139.
 (pdftex.def)             Requested size: 505.89pt x 337.2577pt.
  [4 <./Budnik/img/auto_wet.png> <./Budnik/img/wet.png>]
-<img/acf_pacf.png, id=122, 5018.75pt x 2007.5pt>
+<img/acf_pacf.png, id=125, 5018.75pt x 2007.5pt>
 File: img/acf_pacf.png Graphic file (type png)
 <use img/acf_pacf.png>
 Package pdftex.def Info: img/acf_pacf.png  used on input line 176.
 (pdftex.def)             Requested size: 379.4175pt x 151.75064pt.
  [5 <./img/acf_pacf.png>]
-<img/linie_kwantylowe.png, id=131, 602.25pt x 401.5pt>
+<img/linie_kwantylowe.png, id=134, 602.25pt x 401.5pt>
 File: img/linie_kwantylowe.png Graphic file (type png)
 <use img/linie_kwantylowe.png>
 Package pdftex.def Info: img/linie_kwantylowe.png  used on input line 186.
 (pdftex.def)             Requested size: 379.4175pt x 252.95245pt.
-<img/residua.png, id=135, 602.25pt x 401.5pt>
+<img/residua.png, id=138, 602.25pt x 401.5pt>
 File: img/residua.png Graphic file (type png)
 <use img/residua.png>
 Package pdftex.def Info: img/residua.png  used on input line 210.
 (pdftex.def)             Requested size: 379.4175pt x 252.95245pt.
  [6 <./img/linie_kwantylowe.png>]
-<img/t_test.png, id=148, 360.59718pt x 258.9675pt>
+<img/t_test.png, id=151, 360.59718pt x 258.9675pt>
 File: img/t_test.png Graphic file (type png)
 <use img/t_test.png>
 Package pdftex.def Info: img/t_test.png  used on input line 218.
 (pdftex.def)             Requested size: 379.4175pt x 272.48499pt.
  [7 <./img/residua.png> <./img/t_test.png>]
-<img/acf_pacf_residua.png, id=157, 5018.75pt x 2007.5pt>
+<img/acf_pacf_residua.png, id=160, 5018.75pt x 2007.5pt>
 File: img/acf_pacf_residua.png Graphic file (type png)
 <use img/acf_pacf_residua.png>
 Package pdftex.def Info: img/acf_pacf_residua.png  used on input line 232.
 (pdftex.def)             Requested size: 379.4175pt x 151.75064pt.
-<img/Ljung-Box.png, id=159, 399.74344pt x 237.88875pt>
+<img/Ljung-Box.png, id=162, 399.74344pt x 237.88875pt>
 File: img/Ljung-Box.png Graphic file (type png)
 <use img/Ljung-Box.png>
 Package pdftex.def Info: img/Ljung-Box.png  used on input line 241.
 (pdftex.def)             Requested size: 379.4175pt x 225.80426pt.
-<img/density.png, id=161, 602.25pt x 401.5pt>
+<img/density.png, id=164, 602.25pt x 401.5pt>
 File: img/density.png Graphic file (type png)
 <use img/density.png>
 Package pdftex.def Info: img/density.png  used on input line 255.
 (pdftex.def)             Requested size: 379.4175pt x 252.95245pt.
  [8 <./img/acf_pacf_residua.png> <./img/Ljung-Box.png>]
-<img/qqplot.png, id=169, 602.25pt x 401.5pt>
+<img/qqplot.png, id=172, 602.25pt x 401.5pt>
 File: img/qqplot.png Graphic file (type png)
 <use img/qqplot.png>
 Package pdftex.def Info: img/qqplot.png  used on input line 264.
 (pdftex.def)             Requested size: 379.4175pt x 252.95245pt.
-<img/ad_test.png, id=171, 376.40625pt x 241.65282pt>
+<img/ad_test.png, id=174, 376.40625pt x 241.65282pt>
 File: img/ad_test.png Graphic file (type png)
 <use img/ad_test.png>
 Package pdftex.def Info: img/ad_test.png  used on input line 272.
@@ -739,10 +746,10 @@ Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: C2AF8F0D2C4B8E2E8511E1869781664D;2668.
  ) 
 Here is how much of TeX's memory you used:
- 12524 strings out of 479081
- 194046 string characters out of 2852598
+ 12532 strings out of 479081
+ 194161 string characters out of 2852598
  510240 words of memory out of 3000000
- 29939 multiletter control sequences out of 15000+600000
+ 29945 multiletter control sequences out of 15000+600000
  435312 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,12n,77p,705b,355s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -760,9 +767,9 @@ s/mkarc/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plsy8.pfb><C:/Users
 /mkarc/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Use
 rs/mkarc/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Use
 rs/mkarc/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
-Output written on document.pdf (11 pages, 1532442 bytes).
+Output written on document.pdf (11 pages, 1553905 bytes).
 PDF statistics:
- 234 PDF objects out of 1000 (max. 8388607)
+ 237 PDF objects out of 1000 (max. 8388607)
  46 named destinations out of 1000 (max. 500000)
- 189 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 194 words of extra memory for PDF output out of 10000 (max. 10000000)
 
