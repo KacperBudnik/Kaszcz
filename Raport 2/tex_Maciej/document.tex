@@ -40,12 +40,9 @@
 \usepackage{dsfont}
 \newtheorem{lema}{Lemma}
 
-\newtheoremstyle{exer}{20pt}{10pt}{}{0pt}{\bfseries}{.\\}{.5em}{}
-\theoremstyle{exer}
-\newtheorem{ex}{Ex}
 
 %\usepackage[a4paper,total={6in,10in}]{geometry}
-\usepackage[a4paper,total={7in,10in}]{geometry}
+\usepackage[a4paper,total={6.5in,10in}]{geometry}
 %\newtheoremstyle{style name}{space above}{space below}{body font}{indent amount}{head font}{head punct}{after head space}{head spec}
 \usepackage{color}
 
@@ -80,7 +77,7 @@
 	\newpage
 	
 	\section{Wprowadzenie}
-	Analizowane dane pochodzą ze strony \href{https://www.kaggle.com/code/amar09/time-series-delhi-weather-forecasting-arima/data}{Kaggel}. Zawierają one dane pogodowe z Indyjskiego miasta Delhi od dnia 1 listopada 1996 do 24 kwiecień 2017. Dane były pobierane w przynajmniej ośmiu ustalonych momentach dnia w odstępach trzygodzinnych. W pierwszych latach dane w większości były pobierane w odstępach godzinnych. Zawierają one informacje między innymi o wilogtności, temperaturze punktu rosy, zjawiskach atmosferycznych, czyli informacjie czy wystąpiły opady, burze, mgły i tym podobne oraz dacie pomiaru. Przykładowe dane przezentują się następująco.
+	Analizowane dane pochodzą ze strony \href{https://www.kaggle.com/code/amar09/time-series-delhi-weather-forecasting-arima/data}{Kaggel}. Zawierają one dane pogodowe z Indyjskiego miasta Delhi od dnia 1 listopada 1996 do 24 kwiecień 2017. Dane były pobierane w przynajmniej ośmiu ustalonych momentach dnia w odstępach trzygodzinnych. W pierwszych latach przewarzał odstęp godzinny między kolejnymi pomiarami. Zawierają one informacje między innymi o wilogtności, temperaturze punktu rosy, zjawiskach atmosferycznych, czyli informacjie czy wystąpiły opady, burze, mgły i tym podobne oraz dacie pomiaru. Przykładowe dane przezentują się następująco.
 	\begin{table}[H]
 		\centering
 		\begin{tabularx}{4\textwidth/5}{|p{3cm}|Y|Y|Y|Y|Y|}
@@ -92,7 +89,7 @@
 			19961101-14:00 &  10 & 0 & 0 & 41& 24 \\\hline
 			19961101-16:00 &  11 & 0 & 0 & 47& 23 \\\hline
 			19961101-17:00 &  12 & 0 & 0 & 56& 21 \\\hline
-		\end{tabularx}
+		\end{tabularx}\caption{Przykładowe dane które poddamy analizie.}
 	\end{table}
 	W analizie interesują nas jedynie kolumny \verb*|datetime_utc| przechowująca informację o dacie pomiaru oraz \verb*|_tempm| zawierająca odnotowaną temperaturę. Będziemy analizować zachowanie średniej temperatury dziennej w zależności od średnich z poprzednich dni.
 	\section{Przygotowanie danych do analizy}
@@ -117,7 +114,7 @@
 	\begin{equation}
 		m(h)=24.8564+9\cdot10^{-5}h,
 	\end{equation}  
-	gdzie $m$ oznacza zmianę średniej temperatury w ciągu dnia. Zatem w ciągu 10 lat średnia temperatura w Delhi, według naszych obliczeń, wzrosła w przybliżeniu o $m(10\cdot365)-m(0)\approx0.3287^\circ$C. Według danych w tym samym okresie średnia temperatura na ziemi wzrosła, w zależności od regionu i źródeł, o więcej niż $0.2^\circ$C, zatem nasze wyniki częściowo pokrywają się z obserwowanymi zdarzeniami.
+	gdzie $m$ oznacza zmianę średniej temperatury w ciągu dnia. Zatem w ciągu 10 lat średnia temperatura w Delhi, według naszych obliczeń, wzrosła w przybliżeniu o $m(10\cdot365)-m(0)\approx0.3287^\circ$C. Według danych w tym samym okresie średnia temperatura na ziemi wzrosła, w zależności od regionu i źródeł, o więcej niż $0.2^\circ$C, zatem nasze wyniki częściowo pokrywają się z obserwowanymi zdarzeniami. Trend ten obliczyliśmy jedynie w celu sprawdzenia poprawności danych. W celu uodrębnienia części stacjonarnej z danych posłużyliśmy się motodą różnicowania sezonowego.
 %	\subsection{Transformacja Boxa-Coxa}
 %	Przed przystąpieniem do dekompozycji zastosowaliśmy transformację Boxa-Coxa. Transformacja ma ta na celu zminimalizowanie wariancji i przybliżenie rozkładu do rozkładku normalnego. Przy pomocy metod numerycznych oszacowaliśmy, że najmniejsza wariancja będzie dla transformacji z parametrem $\lambda\approx1.4591$, zatem analizować dane w postaci $y_n=x_n^\lambda$. Na poniższym histogramie widnieją dane przed transformacją (niebieski) oraz po transformacji (pomarańczowy).
 %	\begin{figure}[H]
@@ -136,12 +133,13 @@
 	\end{figure}
 	Na wykresach widać, że funkcja częściowej i zwykłej autokowariancji szybko zbiega do wartości bliskich zeru i pozostaje w jego otoczeniu. Zatem możemy założyć, że nasz szereg jest już stacjonarny. By sprawdzić to założenie ponownie wykonaliśmy ADF-Test. W tym przypadku p-value$=0.002$, zatem możemy odrzucić hipotezę głoszącą, że szereg nie jest stacjonarny. Histogram naszych danych po transformacji wygląda następująco.
 		\begin{figure}[H]
-			\includegraphics[width=\columnwidth]{Budnik/img/wet.png}
+			\centering
+			\includegraphics[width=4\columnwidth/5]{Budnik/img/wet.png}
 			\caption{Dane przed i po transformacji. Dolna oś wskazuje na dane oryginalne, na górze widnieje oś dla danych po transformacji.}
 		\end{figure}
 	
-	\section{Dobranie modelu ARMA}
-	\subsection{Rząd modelu}
+	\vspace{-3mm}\section{Dobranie modelu ARMA}
+	\vspace{-3mm}\subsection{Rząd modelu}
 	W celu znalezienia rzędu medelu skorzystaliśmy z kryterium informacyjnego Akkaike. Jest to metoda największej wiargodności z karą dla danego $p$ i $q$ w postaci
 	\begin{equation}
 		AIC=-2l(x;\phi;\theta,\sigma^2)+2(p+q+1),
@@ -157,10 +155,10 @@
 			$p=2$ & 11040.8 & 11040.5 & \textcolor{red}{11027.3} & 11028.3 & 11030.2 \\\hline
 			$p=3$ & 11036.6 & 11027.6 & 11030.0 & 11029.9 & 11031.7 \\\hline
 			$p=4$ & 11036.7 & 11028.3 & 11030.4 & 11032.8 & 11030.8 \\\hline
-		\end{tabularx}
+		\end{tabularx}\caption{Wartości kryterium informacyjnego AIC dla wartości $p$ i $q$ nie większych niż 5. Na czerwono znaczono najmniejszą wartość ze wszystkich rozpatrywanych wartości.}
 	\end{table}
-Więc naszym modelem będzie model $ARMA(2,2)$.
-	\subsection{Estymacja paremetrów modelu}
+\noindent Zatem naszym modelem będzie model $ARMA(2,2)$.
+	\vspace{-3mm}\subsection{Estymacja paremetrów modelu}
 	Przy znanych parametrach $p$ i $q$ możemy zacząć estymować współczynniki modelu. Do estymacji korzystaliśmy z metody największej wiarygodności. Skorzystaliśmy z numerycznego przybliżenia przy pomocy funkcji \verb*|ARIMA.fit()| z pakietu \verb*|statsmodels.tsa.arima.model| w języku \verb*|Python|. W wyniku dostaliśmy model
 	\begin{equation}\label{model}
 		Y_t-1.6118\,Y_{t-1}+0.6232\,Y_{t-2}=Z_t-0.8640\,Z_{t-1}-0.0688\,Z_{t-2},
@@ -169,11 +167,11 @@ Więc naszym modelem będzie model $ARMA(2,2)$.
 	
 	
 	
-	\section{Ocena dopasowania modelu}
+	\vspace{-3mm}\section{Ocena dopasowania modelu}
 	W celu oceny dopasowania modelu do danych zobaczymy jak wyglądają przedziały ufności,wyznaczone za pomocą Monte Carlo, na poziomie $\alpha = 5\%$ dla ACF i PACF 
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=3\columnwidth/4]{img/acf_pacf.png}
+		\includegraphics[width=\columnwidth]{img/acf_pacf.png}
 		\caption{Przedziały ufności dla ACF i PACF dla naszego modelu}
 		\label{fig:model_acf_pacf}
 	\end{figure}
